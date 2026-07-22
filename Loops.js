@@ -152,3 +152,50 @@ for(let i = 0; i <= 5; i++){
     }
     console.log(i);
 }
+
+/*
+Real-World Example
+
+Suppose a website has 100 users.
+
+You only want to skip banned users.
+
+*/
+
+for(let user = 1; user <= 5; user++){
+    if(user === 3){
+        continue;
+    };
+    console.log(`Loading User's ${user}`)
+}
+
+/*
+💻 Q6 – Coding Challenge
+
+Write a JavaScript program that prints numbers from 1 to 10, but skips 5 using the continue statement.
+
+Expected output:
+*/
+
+let numbers = 10;
+
+for(let numbers = 1; numbers <= 10; numbers++){
+    if(numbers === 5){
+        continue;
+    }
+    console.log(`Here are Numbers ${numbers}`);
+}
+
+/*
+Write another program that prints numbers from 1 to 10, but stops when it reaches 7 using the break statement.
+*/
+
+let digit = 10; 
+
+for(let digit = 1; digit <= 10; digit++){
+    if(digit === 7){
+        break;
+    }
+    console.log(`Here are numbers till: ${digit}`);
+}
+
