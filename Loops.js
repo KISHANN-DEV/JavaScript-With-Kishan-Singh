@@ -199,3 +199,53 @@ for(let digit = 1; digit <= 10; digit++){
     console.log(`Here are numbers till: ${digit}`);
 }
 
+//👨‍💻 Build Feature #1 (Hotel Room Generator) 
+
+for(let floor = 1; floor <= 3; floor++){
+    console.log(`Floor ${floor}`)
+
+    for(let room = 1; room <= 5; room++){
+        console.log(`Room ${floor}${room}`);
+    }
+}
+
+
+/*
+🧩 Moderate Logic Challenge
+
+You're building a Movie Seat Booking System.
+
+Requirements:
+
+There are 5 rows (A to E).
+Each row has 6 seats.
+
+Your goal is to generate:
+
+
+A1 A2 A3 A4 A5 A6
+
+B1 B2 B3 B4 B5 B6
+
+C1 C2 C3 C4 C5 C6
+
+D1 D2 D3 D4 D5 D6
+
+E1 E2 E3 E4 E5 E6
+
+*/
+
+const rows = ["A", "B", "C", "D", "E"];
+
+for (let i = 0; i < rows.length; i++) {
+
+    let currentRow = rows[i];
+    let output = "";
+
+    for (let seat = 1; seat <= 6; seat++) {
+        output += `${currentRow}${seat} `;
+    }
+
+    console.log(output);
+}
+
