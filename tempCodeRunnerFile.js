@@ -1,6 +1,6 @@
- // return{
-    //    foodName : "Pizza",
-    //    quantity : 3, 
-    //    pricePerIteam : 299, 
-    //    totalBill : 897
-    // };
+console.log(framework);
+// let framework = "react"; //Reference Error
+
+
+// console.log(totalValue); // Reference Error 
+// const totalValue = "Nothing
