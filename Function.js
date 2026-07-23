@@ -5,8 +5,8 @@ Build Our First Function
 
 */
 
-function bookHotel(hotelName, city, price){
-    console.log("Booking Confirmed") ;
+function bookHotel(hotelName, city, price) {
+    console.log("Booking Confirmed");
 
     console.log(`Hotelname : ${hotelName}`);
     console.log(`City : ${city}`);
@@ -38,7 +38,7 @@ Price : ₹299
 
 */
 
-function orderFood(foodName, restaurent, price){
+function orderFood(foodName, restaurent, price) {
     console.log("====== Order Confirmed ======")
 
     console.log(`Foodname: ${foodName}`);
@@ -98,7 +98,7 @@ Once you finish this, we'll move to the next lesson: return vs console.log()—o
  
 */
 
-function calculateBill(productName, quentity, pricePerItem, TotalPrice){
+function calculateBill(productName, quentity, pricePerItem, TotalPrice) {
     console.log("===== Invoice ======");
     console.log(`Product : ${productName}`);
     console.log(`Quantiy : ${quentity}`);
@@ -108,3 +108,188 @@ function calculateBill(productName, quentity, pricePerItem, TotalPrice){
 }
 
 console.log(calculateBill("Laptop", 2, 50000));
+
+
+
+// Return Function 
+function calculatedTotal(price, nights) {
+    return price * nights;
+}
+
+const total = calculatedTotal(999, 2);
+console.log(total);
+
+const finalBill = total + 500;
+
+console.log(finalBill);
+
+const discount = 498;
+
+const payable = finalBill - discount;
+
+console.log(payable);
+
+/*
+
+⚠️ Interview Question
+What is the difference between return and console.log()?
+console.log()
+Prints a value to the console.
+Does not send the value back.
+Mostly used for debugging.
+return
+Sends a value back to the caller.
+Lets other code reuse the result.
+Essential for calculations, APIs, React, and backend logic.
+ 
+*/
+
+/*
+ 
+🧑‍💻 Challenge (Developer Edition)
+
+You're building an E-Commerce Website.
+
+Create a function:
+
+calculateDiscount()
+
+Parameters:
+
+price
+discountPercentage
+
+Inside the function:
+
+Calculate the discount amount.
+Calculate the final price.
+Return the final price (don't print it inside the function).
+
+Example:
+
+const finalPrice = calculateDiscount(5000, 20);
+console.log(finalPrice);
+
+Expected Output:
+4000
+
+*/
+
+function calculateDiscount(price, discountPercentage) {
+
+    const discountAmount = price * (discountPercentage / 100);
+    const finalPrice = price - discountAmount;
+    const priceWithGST = finalPrice * 1.18;
+    
+    return {
+        discountAmount,
+        finalPrice,
+        priceWithGST
+    };
+    
+}    
+
+console.log(calculateDiscount(5000, 20));
+
+/*
+💼 Interview Question
+Can a JavaScript function return multiple values?
+
+✅ Answer:
+
+A function can only return one value directly.
+
+If you need to return multiple related values, return an object or an array.
+
+*/
+
+// Function Expression:- Wrapping a function inside a variable is called function expression. 
+
+const bookHotell = function(hotelName, city){
+    console.log(`======Booking Confirmed======`);
+    console.log(`Hotel Name: ${hotelName}`);
+    console.log(`City : ${city}`);
+    console.log(`=========================`)
+}
+
+bookHotell("Taj Hotel(Mumbai)", "Mumbai");
+
+/*
+📊 Function Declaration vs Function Expression
+
+Function Declaration	                        Function Expression
+Named function	                                Function stored in a variable
+Can be called before it's written (hoisted)    	Must be defined before calling
+Traditional syntax	                            Modern projects use this frequently
+*/
+
+//AnotherOne :- 
+
+const calculateTotall = function calculateTotall(price, nights){   //Const calculateTotall is a varibale in which whole function is stored. 
+    return price * nights;
+}
+
+const totall = calculateTotall(1000, 2);
+console.log(totall);
+
+/*
+🧑‍💻 Challenge (Developer Edition)
+
+You're building an Online Banking System.
+
+Create a Function Expression named:
+transferMoney
+
+It should accept:
+
+sender
+receiver
+amount
+
+It should print:
+
+===== Money Transfer =====
+From : Kishan
+To : Rahul
+Amount : ₹5000
+Status : Successful
+==========================
+*/
+
+const transferMoney = function transferMoney(sender, receiver, amount){
+    console.log(`=====Money Transfer =====`);
+    console.log(`From: ${sender}`);
+    console.log(`To : ${receiver}`) ;
+    console.log(`Amount : ${amount}`);
+    console.log(`==========================`)
+    
+    return{
+        sender : "Kishan Singh",
+        receiver : "Lakhan", 
+        amount : 1000
+    }
+}
+
+const finalTransfer = transferMoney("Kishan", "Rahul", 1000);
+console.log(finalTransfer);
+
+/*
+ 💼 Interview Tip
+What's the difference between these two?
+1st:- 
+
+return {
+    sender: sender
+} 
+
+2nd :- 
+
+return {
+    sender
+}
+
+✅ They produce the same result.
+
+The second is called Object Property Shorthand (introduced in ES6) and is the preferred modern style.
+*/
+
