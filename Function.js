@@ -293,3 +293,102 @@ return {
 The second is called Object Property Shorthand (introduced in ES6) and is the preferred modern style.
 */
 
+
+
+
+// Arrow Functions:-  Arrow functions are simply the shorterway of writing functions. 
+
+const validatedBooking = (name, room) => {   //Arrow function 
+   if(room <= 0){
+    return "Invalid Booking";
+   }
+   return `${name}'s Booking Confirmed`;
+}
+
+const checkBooking = validatedBooking("Kishan Singh", 1);
+console.log(checkBooking);
+
+/*
+ 📊 Three Common Styles
+1. No Parameters
+2. One Parameters
+3. Multipal Parameter
+
+*/
+
+//No Parameters :- 
+const showWelcome = ()=> {
+    console.log("Welcome Kishan Singh");
+}
+
+showWelcome();
+
+
+
+//One Parameter:- 
+const greet = name => {
+    console.log(`Hello ${name}`);
+}
+greet("Kishan ji")
+
+
+
+// Multipal Parameter :- 
+
+const calculate = (price, quentity) => {
+    return price * quentity;
+}
+
+let totalCalulatedBill = calculate(2000, 2);
+console.log(totalCalulatedBill); 
+
+/*
+🧑‍💻 Challenge (Developer Edition)
+You're building an Online Food Delivery App.
+
+Create an arrow function called:
+calculateFoodBill
+
+Parameters:
+foodName
+quantity
+pricePerItem
+
+Requirements:
+Calculate the total bill.
+Return an object:
+
+{
+    foodName,
+    quantity,
+    pricePerItem,
+    totalBill
+}
+
+Example
+const bill = calculateFoodBill("Pizza", 3, 299);
+
+console.log(bill);
+
+{
+    foodName: "Pizza",
+    quantity: 3,
+    pricePerItem: 299,
+    totalBill: 897
+}
+
+*/
+
+const calculatedFoodBill = (foodName, quantity, pricePerIteam) => {
+    const totalBill = quantity * pricePerIteam;
+    return{
+       foodName : "Pizza",
+       quantity : 3, 
+       pricePerIteam : 299, 
+       totalBill : 897
+    };
+}
+
+const bill = calculatedFoodBill("Pizza", 3, 299);
+console.log(bill);
+
