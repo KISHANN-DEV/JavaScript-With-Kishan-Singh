@@ -33,10 +33,10 @@ let _count = 5;
 
 //❌ Invalid Names 
 
-/*let 1age = 20;       // Starts with a number
-let my name = "Ram"; // Contains a space
+//let 1age = 20;       // Starts with a number
+let myname = "Ram"; // Contains a space
 let let = 10;        // Reserved keyword
-*/
+
 
 //Real-World Use Case
 
