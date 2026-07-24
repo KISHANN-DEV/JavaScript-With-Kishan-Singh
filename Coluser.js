@@ -147,3 +147,29 @@ account.deposit(500);
 account.withdraw(1000);
 account.checkBalance();
 
+/*
+Interview Questions
+Q1. What is a Closure?
+
+Answer:
+
+A closure is a function that remembers variables from its outer scope even after the outer function has finished executing.
+
+Q2. Why are Closures Used?
+Data privacy
+State management
+Event handlers
+Callbacks
+React Hooks
+Timers
+Encapsulation
+
+Q3. Can Closures Cause Memory Issues?
+Yes.
+If a closure keeps references to objects that are no longer needed, those objects cannot be garbage-collected until the closure itself becomes unreachable.
+
+Q4. Does Every Function Create a Closure?
+Not exactly.
+
+Every function has access to its lexical scope, but a closure becomes especially meaningful when an inner function continues to use variables from an outer scope after that outer function has finished executing.
+*/
