@@ -120,12 +120,70 @@ payment("Avengers", updateDatabase);
 
 // 2nd Code 
 function showTicket(movieName) {
-    console.log(`🎬 Ticket Booked for ${movieName}`);
+      console.log(`🎬 Ticket Booked for ${movieName}`);
 }
 
 function payment(movieName, callback) {
-    console.log("Payment Successful");
-    callback(movieName);
+      console.log("Payment Successful");
+      callback(movieName);
 }
 
 payment("Avengers", showTicket);
+function add(a, b) {
+      console.log(a + b);
+}
+
+function calculate(x, y, callback) {
+      console.log("Calculation Started");
+
+      callback(x, y);
+
+      console.log("Calculation Finished");
+}
+
+calculate(10, 20, add);
+
+
+/*
+Build a Food Delivery System
+
+createOrder()
+
+Return an object with:
+
+placeOrder()
+
+cancelOrder()
+
+trackOrder()
+
+When payment succeeds,
+execute the callback.
+
+Expected Output:
+Order Placed
+Payment Successful
+Order Confirmed
+*/
+
+function createOrder(id) {
+      return {
+            placeOrder(cb) {
+                  console.log("Order Placed");
+                  console.log("Payment Sucessful");
+                  console.log("Order Confirmed");
+                  cb();
+            }, 
+                  
+            cancelOrder() {
+                  console.log("Order Cancelled");
+            }, 
+            
+            trackOrder() {
+                  console.log(`Taking Order : ${id}`);
+            }
+      }
+}
+
+const order = createOrder(1);
+order.placeOrder(() => console.log("Callback Payment done"));
