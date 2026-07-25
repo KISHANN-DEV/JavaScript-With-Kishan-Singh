@@ -242,6 +242,22 @@ Remaining Stock : 2
 Current Stock : 2
 */
 
+function generateInvoice() {
+    console.log("📄 Invoice Generated");
+}
+
+function sendEmail() {
+    console.log("📧 Confirmation Email Sent");
+}
+
+function sendNotification() {
+    console.log("🔔 Notification Sent");
+}
+
+function updateOrderHistory() {
+    console.log("📚 Order History Updated");
+}
+
 function createInventory(productName, quantity) {
     return {
         checkStock(callback) {
@@ -258,7 +274,15 @@ function createInventory(productName, quantity) {
             quantity--;
             console.log("Purchase Successful");
             console.log(`Remaining Stock : ${quantity}`);
-            if (callback) callback();
+            generateInvoice(() => {
+                  sendEmail(() => {
+                        sendNotification(()=> {
+                              UpdateOrderHistory(()=> {
+                                  if (callback) callback();
+                              })
+                        })
+                  })
+            })
         },
 
         stock() {
@@ -277,3 +301,25 @@ laptop.checkStock((qty) => {
 });
 
 laptop.stock();
+
+//Just For testing 
+
+function sendEmail(callback) {
+    setTimeout(() => {
+      console.log(`Send Email`);
+      callback();
+    }, 2000);
+}
+
+function sendNotification(callback) {
+    setTimeout(() => {
+      console.log(`Send Notification`);
+      callback();
+    }, 2000);
+}
+
+function updateOrderHistory(callback) {
+    setTimeout(() => {
+      console.log(`update order History`)
+    }, 1000);
+}
