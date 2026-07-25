@@ -173,12 +173,12 @@ function createOrder(id) {
                   console.log("Payment Sucessful");
                   console.log("Order Confirmed");
                   cb();
-            }, 
-                  
+            },
+
             cancelOrder() {
                   console.log("Order Cancelled");
-            }, 
-            
+            },
+
             trackOrder() {
                   console.log(`Taking Order : ${id}`);
             }
@@ -187,3 +187,93 @@ function createOrder(id) {
 
 const order = createOrder(1);
 order.placeOrder(() => console.log("Callback Payment done"));
+
+
+/*
+🧑‍💻 Feature 1
+Build an Inventory System
+Requirement
+
+Create:
+
+createInventory(productName, quantity)
+
+Return an object with 3 methods.
+
+1️⃣ checkStock(callback)
+
+If quantity > 0
+
+Print:
+
+Checking Stock...
+Stock Available
+
+
+
+Then execute the callback.
+Otherwise
+Checking Stock...
+Out of Stock
+Don't execute the callback.
+
+2️⃣ purchase()
+Decrease quantity by 1.
+Print
+Purchase Successful
+Remaining Stock : X
+
+3️⃣ stock()
+Print
+Current Stock : X
+Expected Usage
+const laptop = createInventory("MacBook", 3);
+
+laptop.checkStock(() => {
+    laptop.purchase();
+});
+
+laptop.stock();
+
+Checking Stock...
+Stock Available
+Purchase Successful
+Remaining Stock : 2
+Current Stock : 2
+*/
+
+function createInventory(productName, quantity) {
+    return {
+        checkStock(callback) {
+            console.log("Checking Stock...");
+            if (quantity > 0) {
+                console.log("Stock Available");
+                callback(quantity);
+            } else {
+                console.log(`Out of Stock: ${productName}`);
+            }
+        },
+
+        purchase(callback) {
+            quantity--;
+            console.log("Purchase Successful");
+            console.log(`Remaining Stock : ${quantity}`);
+            if (callback) callback();
+        },
+
+        stock() {
+            console.log(`Current Stock : ${quantity}`);
+        }
+    };
+}
+
+const laptop = createInventory("Victus", 1);
+
+laptop.checkStock((qty) => {
+    console.log(`Available Qty: ${qty}`);
+    laptop.purchase(() => {
+        console.log("📄 Invoice Generated");
+    });
+});
+
+laptop.stock();
