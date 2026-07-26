@@ -11,32 +11,32 @@ A function that takes another function as an argument, or returns another functi
 
 const hotel = [
     {
-        id : 1,
-        name : "Taj Hotel",
-        city : "Delhi",
-        price : 4500,
-        rating : 4.5,
-        available : true
+        id: 1,
+        name: "Taj Hotel",
+        city: "Delhi",
+        price: 4500,
+        rating: 4.5,
+        available: true
     },
     {
-        id : 2, 
-        name : "Lalit Hotel",
-        city : "Mumbai",
-        price : 5000,
-        rating : 4.8,
-        available : false
+        id: 2,
+        name: "Lalit Hotel",
+        city: "Mumbai",
+        price: 5000,
+        rating: 4.8,
+        available: false
     },
     {
-        id : 3, 
-        name : "Sea view resort",
-        city : "Goa",
-        price : 4000,
-        rating : 4.1,
-        available : true, 
+        id: 3,
+        name: "Sea view resort",
+        city: "Goa",
+        price: 4000,
+        rating: 4.1,
+        available: true,
     }
 ];
 
-for(let i = 0; i < hotel.length; i++){
+for (let i = 0; i < hotel.length; i++) {
     console.log(`Hotel : ${hotel[i].name}`)
     console.log(`City : ${hotel[i].city}`)
     console.log(`Price : ${hotel[i].price}`)
@@ -74,10 +74,52 @@ Available: true
 Available: true
 */
 
-hotel.forEach(function(item, index){
-       if(item.available == true){
+hotel.forEach(function (item, index) {
+    if (item.available == true) {
         console.log(`${index + 1}. Hotel : ${item.name}`);
         console.log(`Available : ${item.available}`)
         console.log(`=================`)
-       }
+    }
 })
+
+
+//with the help of arrow funtion: 
+hotel.forEach((item, index) => {
+    if (item.available == true) {
+        console.log(`${index + 1}. Hotel : ${item.name}`);
+        console.log(`Available : ${item.available}`)
+        console.log(`=================`)
+    }
+})
+
+/*
+Company Requirement
+
+Your Team Lead says:
+"We only need the first available hotel. Once you find it, stop searching."
+Immediately you might think:
+
+break;
+
+🎯 Important Interview Question
+
+Can we use break inside forEach()?
+✅ Correct answer:
+No. break only works with looping constructs like for, while, and switch. Since forEach() 
+executes a callback function for each element, using break inside that callback results in 
+an "Illegal break statement" error.
+*/
+
+
+
+hotel.forEach((item) => {
+
+    if (!item.available) {
+        return;
+    }
+
+    console.log(item.name);
+
+});
+
+console.log("Done");
