@@ -329,3 +329,5 @@ const resultss = hotelss.filter((item) => {
 });
 
 console.log(result);
+
+
