@@ -333,3 +333,66 @@ const products = [
 ];
 
 
+/*
+📢 Business Requirement
+
+The company has launched a Premium Membership.
+
+Every product with a rating of 4.7 or above should get a new property:
+
+isPremium
+Rules
+⭐ rating >= 4.7 → true
+⭐ Otherwise → false
+
+✅ Rules
+Use map()
+Use the spread operator (...item)
+Add a new property called isPremium
+Don't modify the original array
+*/
+
+const premiumProducts = products.map((item) => {
+    return {
+        ...item,
+        isPremium : item.rating >= 4.7
+    };
+});
+
+console.log(premiumProducts);
+
+/*
+🎫 Jira Ticket #407 (Real React Scenario)
+
+Now let's solve a task you'll see in many e-commerce websites.
+
+📢 Business Requirement
+
+The UI team wants every product card to display a discounted price.
+
+Rules
+If the product price is ₹10,000 or more, apply a 15% discount.
+Otherwise, apply a 5% discount.
+
+Add two new properties:
+
+discount
+
+Example:
+
+discount: "15%"
+
+finalPrice
+*/
+
+const discountedProducts = products.map((item) => {
+    const discountPercent = item.price >= 10000 ? 15 : 5
+    return {
+        ...item, 
+        discount : discountPercent,
+        finalPrice : item.price - (item.price * discountPercent / 100)
+        
+    };
+});
+console.log("================")
+console.log(discountedProducts);
