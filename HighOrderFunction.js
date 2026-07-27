@@ -123,3 +123,7 @@ hotel.forEach((item) => {
 });
 
 console.log("Done");
+
+/*
+Yesterday, we learned forEach(). Today, you'll understand why filter() exists.
+*/
