@@ -30,7 +30,7 @@ console.log(bigNumber);
 
 // Non-Primitive Data Types 
 
-// objects
+//OBJECTS 
 
 let student ={
     name: "Kishan singh",
