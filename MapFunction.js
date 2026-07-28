@@ -32,17 +32,17 @@ const hotels = [
   }
 ];
 
-const hotelName = hotels.filter((item)=> {
-    return item.available && item.price < 5000;
-}).map((item)=> {
-    return item.name;
+const hotelName = hotels.filter((item) => {
+  return item.available && item.price < 5000;
+}).map((item) => {
+  return item.name;
 })
 
 console.log(hotelName);
 
 
-const allHotelNames = hotels.map((item)=> {
-    return item.name;
+const allHotelNames = hotels.map((item) => {
+  return item.name;
 })
 
 console.log(allHotelNames);
@@ -152,7 +152,7 @@ const house = [
     rating: 4.2,
     available: true,
     roomsLeft: 4,
-     status : "Sold Out"
+    status: "Sold Out"
   },
   {
     id: 110,
@@ -162,27 +162,27 @@ const house = [
     rating: 4.4,
     available: false,
     roomsLeft: 1,
-    status : "Available"
+    status: "Available"
   }
 ];
 
 
-    const updatedHotels = house.map((item) => {
-        return {
-            id: item.id,
-            name: item.name,
-            city: item.city,
-            price: item.price + 500,
-            rating: item.rating,
-            available: item.available,
-            roomsLeft: item.roomsLeft
-        };
-    });
-    console.log(updatedHotels);
+const updatedHotels = house.map((item) => {
+  return {
+    id: item.id,
+    name: item.name,
+    city: item.city,
+    price: item.price + 500,
+    rating: item.rating,
+    available: item.available,
+    roomsLeft: item.roomsLeft
+  };
+});
+console.log(updatedHotels);
 
 
-    /*
- 🎫 Jira Ticket #403 (Next Challenge)
+/*
+🎫 Jira Ticket #403 (Next Challenge)
 
 Now let's make it a little more interesting.
 
@@ -197,24 +197,24 @@ discount: "10%"
 
 Example output for one hotel:
 {
-    id: 101,
-    name: "EMERALD SUITES",
-    city: "Chandigarh",
-    price: 4800,
-    rating: 4.3,
-    available: true,
-    roomsLeft: 5,
-    discount: "10%"
+id: 101,
+name: "EMERALD SUITES",
+city: "Chandigarh",
+price: 4800,
+rating: 4.3,
+available: true,
+roomsLeft: 5,
+discount: "10%"
 }
-    */
+*/
 
 const changesIntoHotels = house.map((item) => {
-    return {
-        ...item,
-        name: item.name.toUpperCase(),
-        price: item.price + 1000,
-        discount: "10%"
-    };
+  return {
+    ...item,
+    name: item.name.toUpperCase(),
+    price: item.price + 1000,
+    discount: "10%"
+  };
 });
 
 console.log(changesIntoHotels);
@@ -230,11 +230,11 @@ Using map(), create a new property called status.
 */
 
 const status = house.map((item) => {
-    return{
-        ...item, 
-        status : item.status ? "Available" : "Sold out"
-        
-    };
+  return {
+    ...item,
+    status: item.status ? "Available" : "Sold out"
+
+  };
 });
 
 console.log(status)
@@ -353,10 +353,10 @@ Don't modify the original array
 */
 
 const premiumProducts = products.map((item) => {
-    return {
-        ...item,
-        isPremium : item.rating >= 4.7
-    };
+  return {
+    ...item,
+    isPremium: item.rating >= 4.7
+  };
 });
 
 console.log(premiumProducts);
@@ -383,16 +383,195 @@ Example:
 discount: "15%"
 
 finalPrice
-*/
 
 const discountedProducts = products.map((item) => {
-    const discountPercent = item.price >= 10000 ? 15 : 5
-    return {
-        ...item, 
-        discount : discountPercent,
-        finalPrice : item.price - (item.price * discountPercent / 100)
-        
-    };
+  const discountPercent = item.price >= 10000 ? 15 : 5
+  return {
+    ...item, 
+    discount : discountPercent,
+    finalPrice : item.price - (item.price * discountPercent / 100)
+    
+  };
 });
 console.log("================")
+console.log(discountedProducts);
+
+*/
+/*
+🎫 Jira Ticket #408 (Real Company Task)
+
+The company wants to show a shipping label for every product.
+
+Business Rules
+If finalPrice >= 50000
+shipping: "Free Express Shipping 🚚"
+Else if finalPrice >= 10000
+shipping: "Free Shipping 📦"
+Otherwise
+shipping: "Shipping Charges Apply 💰"
+*/
+
+
+// const discountedProducts = products.map((item) => {
+//   const discountedPercent = item.price >= 10000 ? 15 : 5;
+//   const finalPrice = item.price - (item.price * discountedPercent / 100);
+
+//   let shipping;
+//   if (finalPrice >= 50000) {
+//     shipping = "Free Express Shipping";
+//   } else if (finalPrice >= 10000) {
+//     shipping = "Free Shipping";
+//   } else {
+//     shipping = "Shipping Charges Apply"
+//   };
+//   return {
+//     ...item,
+//     discount: discountedPercent,
+//     finalPrice: finalPrice,
+//     shipping: shipping
+//   }
+// });
+
+// console.log("==================");
+// console.log(discountedProducts);
+
+
+/*
+🎫 Jira Ticket #409 (Intermediate Level)
+
+Now we're going to combine everything you've learned.
+Business Requirement
+The company wants to show an inventory status.
+
+Create two new properties:
+inventoryStatus
+
+Rules:
+stock === 0 → "Out of Stock"
+stock <= 5 → "Low Stock"
+Otherwise → "In Stock"
+
+Also create:
+canBuy
+Rules:
+
+If stock > 0 → true
+Otherwise → false
+
+Expected output:
+
+{
+    id: 209,
+    name: "External SSD",
+    stock: 5,
+
+    inventoryStatus: "Low Stock",
+    canBuy: true
+*/
+
+
+/*
+🎫 Jira Ticket #410 (Senior Frontend Challenge)
+
+This is something you'll actually do in React after fetching data from an API.
+
+Business Requirement
+
+The marketing team wants every product card to have a label.
+
+Rules:
+
+⭐ rating >= 4.8 AND stock > 0
+"🔥 Best Seller"
+⭐ rating >= 4.5
+"⭐ Popular"
+⭐ stock === 0
+"❌ Sold Out"
+Otherwise
+"🆕 New Arrival"
+Expected Output
+{
+    id: 207,
+    name: "Monitor",
+    rating: 4.9,
+    stock: 7,
+    label: "🔥 Best Seller"
+}
+{
+    id: 203,
+    name: "Mechanical Keyboard",
+    rating: 4.8,
+    stock: 0,
+    label: "❌ Sold Out"
+}
+*/
+
+
+/*
+📢 Business Requirement
+
+The company wants a product summary for search results.
+
+Create a new property:
+
+summary
+
+Format:
+<name> - <brand> | ₹<finalPrice> | <shipping> | <label>
+Example
+Gaming Laptop - Acer | ₹61200 | Free Express Shipping | 🔥 Best Seller
+
+Another example:
+
+Bluetooth Speaker - JBL | ₹3040 | Shipping Charges Apply | 🆕 New Arrival
+Rules
+Use the finalPrice, shipping, and label you've already calculated.
+Do not recalculate them.
+Add only one new property: summary.
+
+This is a common frontend pattern: after calculating several derived fields, 
+you compose them into a display string for cards, lists, or search results.
+*/
+const discountedProducts = products.map((item) => {
+    const discountedPercent = item.price >= 10000 ? 15 : 5;
+    const finalPrice = item.price - (item.price * discountedPercent / 100);
+
+    const inventoryStatus = item.stock;
+    const canBuy = item.stock > 0;
+
+    let shipping;
+    if (finalPrice >= 50000) {
+        shipping = "Free Express Shipping";
+    } else if (finalPrice >= 10000) {
+        shipping = "Free Shipping";
+    } else {
+        shipping = "Shipping Charges Apply";
+    }
+
+    let label;
+    if (item.rating >= 4.8 && inventoryStatus > 0) {
+        label = "🔥 Best Seller";
+    } else if (inventoryStatus === 0) {
+        label = "❌ Sold Out";
+    } else if (item.rating >= 4.5) {
+        label = "⭐ Popular";
+    } else {
+        label = "🆕 New Arrival";
+    }
+
+    const summary = `${item.name} - ${item.brand} | ₹${finalPrice} | ${shipping} | ${label}`;
+
+    return {
+        ...item,
+        discountedPercent,
+        finalPrice,
+        shipping,
+        inventoryStatus,
+        canBuy,
+        label,
+        summary
+    };
+});
+
+console.log("==================");
 console.log(discountedProducts);
