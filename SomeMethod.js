@@ -253,5 +253,33 @@ const hasReactDeveloper = employees.some(
 console.log(hasReactDeveloper);
 
 /*
+🎫 Final Boss — Jira #426
 
+This combines everything you've learned so far.
+
+📢 Business Requirement
+
+The CTO wants to know:
+
+"Is there at least one active Engineering employee who knows both React and JavaScript and earns at least ₹80,000?"
+
+Create:
+
+const hasQualifiedFrontendEngineer;
+Rules
+✅ Use some()
+✅ Use &&
+✅ Use includes() twice
+✅ Salary ≥ 80000
+✅ Department = "Engineering"
+✅ Active employee
 */
+
+const hasQualifiedFrontendEngineer = employees.some(
+    item => item.isActive &&
+    item.department === "Engineering" &&
+    item.salary >= 80000 &&
+    item.skills.includes("React") &&
+    item.skills.includes("JavaScript")
+)
+console.log(hasQualifiedFrontendEngineer);
