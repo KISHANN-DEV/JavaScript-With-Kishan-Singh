@@ -148,3 +148,63 @@ Rules
 
 💻 Solve it first, and then we'll move on to combining multiple conditions with every(), just like we did with some().
 */
+
+const areAllEmployeesAboveMinimumSalary = employees.every(
+    item => item.salary <= 45000
+)
+console.log(areAllEmployeesAboveMinimumSalary);
+
+
+/*
+🎫 Jira #429 (Intermediate)
+
+Now let's combine multiple conditions.
+
+📢 Business Requirement
+The HR department wants to verify:
+"Are all employees active and do they all have at least 2 years of experience?"
+
+Create:
+const areAllExperiencedAndActive;
+Rules
+✅ Use every()
+✅ Use &&
+✅ No loops
+✅ Print the result
+
+This is your first every() challenge with multiple conditions. Give it a try before looking for hints.
+*/
+const areAllExperiencedAndActive = employees.every(
+    item => item.isActive && 
+    item.experience >= 2
+)
+
+console.log(areAllExperiencedAndActive)
+
+
+/*
+🎫 Jira #430 (Real Interview Question)
+
+This is a question that frequently appears in coding interviews.
+
+📢 Business Requirement
+
+The company wants to verify:
+
+"Does every employee know JavaScript?"
+
+Remember, each employee has:
+
+skills: ["HTML", "CSS", "JavaScript", "React"]
+
+Create:
+
+const doAllEmployeesKnowJavaScript;
+*/
+
+const doAllEmployeesKnowJavaScript = employees.every(
+    item => item.skills.includes("JavaScript")
+);
+
+console.log(doAllEmployeesKnowJavaScript);
+
