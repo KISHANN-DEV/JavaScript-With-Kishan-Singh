@@ -205,10 +205,53 @@ Let's make it a bit more realistic.
 
 📢 Business Requirement
 
-The HR dashboard should display an alert if there is at least one inactive employee in the Engineering department with more than 3 years of experience.
+The HR dashboard should display an alert if there is at least one inactive employee in the 
+Engineering department with more than 3 years of experience.
 
 Create:
 
 const hasExperiencedInactiveEngineer;
 Rules
+*/
+
+const hasExperiencedInactiveEngineer = employees.some(
+    item => !item.isActive && 
+    item.department === "Engineering" && 
+    item.experience >= 3
+)
+
+console.log(hasExperiencedInactiveEngineer)
+
+/*
+🎫 Jira #425 (Senior Frontend Challenge)
+
+This is closer to a real HR dashboard.
+
+📢 Business Requirement
+
+The HR system wants to know:
+
+"Is there at least one employee who is active and has React as one of their skills?"
+Remember, skills is an array:
+
+skills: ["HTML", "CSS", "JavaScript", "React"]
+Create:
+
+const hasReactDeveloper;
+Rules
+✅ Use some()
+✅ Check isActive
+✅ Check whether "React" exists inside the skills array
+*/
+
+
+const hasReactDeveloper = employees.some(
+    item => item.isActive  &&
+    item.skills.includes("React")
+)
+
+console.log(hasReactDeveloper);
+
+/*
+
 */
