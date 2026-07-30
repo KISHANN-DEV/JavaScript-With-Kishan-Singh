@@ -65,7 +65,8 @@ let savedPassword = "admin123";
 if(adminPassword === savedPassword) {
     console.log("Access granted. Welcome, Admin!");
 } else {
-    console.log("Access denied. Incorrect password.");
+    console.log("Access denied. Incorrect");
+    
 }
 
  // Task 
