@@ -208,3 +208,26 @@ const doAllEmployeesKnowJavaScript = employees.every(
 
 console.log(doAllEmployeesKnowJavaScript);
 
+/*
+🎫 Jira #431
+Business Requirement
+
+"Does every active employee have at least 3 years of experience and know React?"
+
+Create:
+
+const areAllActiveEmployeesQualified;
+Rules
+✅ Use every()
+✅ Use &&
+✅ Use includes()
+✅ No loops
+✅ Print the result
+*/
+
+const areAllActiveEmployeesQualified = employees.every(
+  item => item.experience >= 3 && 
+  item.skills.includes("React")
+)
+
+console.log(areAllActiveEmployeesQualified);
