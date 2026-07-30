@@ -95,7 +95,6 @@ function createAccount(customerName){
     return{
         bankName,
         customerName,
-        accountNumber,
     };
 
     console.log(balance); // Refrence error because const is block scope;
