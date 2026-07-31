@@ -406,10 +406,22 @@ Expected Output
     */
 
 const highestPaidByDepartment = employees.reduce((obj, employee)=> {
-    obj[employee.id] = employee; 
-    obj[employee.salary] = employee;
+    const current = obj[employee.department];
 
+    if(!current || employee.salary > current.salary){
+        obj[employee.department] = employee;
+    }
     return obj;
 },{});
-
+console.log("====================================")
 console.log(highestPaidByDepartment);
+
+/*
+The Finance team wants the total salary expense for each department.
+*/
+const departmentSalaryExpense = employees.reduce((obj, employee) => {
+  obj[employee.department] = (obj[employee.department] || 0) + employee.salary;
+  return obj;
+}, {});
+
+console.log(departmentSalaryExpense);
