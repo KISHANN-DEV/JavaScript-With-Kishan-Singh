@@ -233,3 +233,183 @@ const totalActiveSalary = employees.reduce(
     (sum, emp) => emp.isActive ? sum + emp.salary : sum, 
 0);
 console.log(totalActiveSalary);
+
+
+/*
+🎫 Jira #508
+📢 Business Requirement
+
+The HR department wants to know how many active employees are currently working in the company.
+
+Create:
+const activeEmployeeCount;
+Rules
+✅ Use reduce()
+✅ Initial value = 0
+✅ No loops
+❌ Do not use filter()
+❌ Do not use length
+✅ Print the result
+*/
+
+const activeEmployeeCount = employees .reduce(
+    (sum, emp) => emp.isActive ? sum + 1 : sum,
+0)
+console.log(activeEmployeeCount);
+
+/*
+🎫 Jira #509
+📢 Business Requirement
+
+Count the inactive employees.
+
+Create:
+const inactiveEmployeeCount;
+Rules
+✅ Use reduce()
+✅ Initial value = 0
+❌ No loops
+❌ No filter()
+
+This is almost identical to the previous task.
+ The only thing that changes is the condition. Try it on your own first.
+*/
+
+const inactiveEmployeeCount = employees.reduce(
+    (count, employee) => (!employee.isActive ? count + 1 : count),
+0 )
+
+console.log(inactiveEmployeeCount);
+
+
+/*
+🎫 Jira #510
+📢 Business Requirement
+
+The HR department wants to know how many employees are in each department.
+
+Expected Output:
+
+{
+    Engineering: 5,
+    HR: 1,
+    Marketing: 1,
+    Finance: 1,
+    Sales: 1,
+    "UI/UX": 1
+}
+Create:
+const departmentCount;
+Rules
+✅ Use reduce()
+✅ Initial value = {}
+*/
+
+const departmentCount = employees.reduce((obj, employee)=> {
+    obj[employee.department] = (obj[employee.department] || 0) + 1 ;
+    return obj;
+}, {})
+
+console.log(departmentCount);
+
+
+/*
+🚀 Next Jira (Slightly Harder)
+🎫 Jira #511
+Business Requirement
+
+The company wants a list of employee names grouped by department.
+
+Expected Output
+{
+    Engineering: [
+        "Rahul Sharma",
+        "Amit Verma",
+        "Vikram Joshi",
+        "Arjun Mehta",
+        "Pooja Nair"
+    ],
+    HR: [
+        "Priya Singh"
+    ],
+    Marketing: [
+        "Neha Kapoor"
+    ],
+    Finance: [
+        "Sneha Patel"
+    ],
+    Sales: [
+        "Karan Malhotra"
+    ],
+    "UI/UX": [
+        "Anjali Gupta"
+    ]
+}
+Create
+const departmentEmployees;
+Rules
+✅ Use reduce()
+✅ Initial value = {}
+*/
+
+
+
+const departmentEmployee = employees.reduce((obj, employee)=> {
+    (obj[employee.department] ||= []).push(employee.name)
+    return obj;
+}, {})
+
+console.log(departmentEmployee);
+
+/*
+🚀 Next Level (Interview Favorite)
+
+Now let's build something slightly different.
+
+🎫 Jira #512
+📢 Business Requirement
+
+Create an object where:
+
+Key = Employee ID
+Value = Complete Employee Object
+Expected Output
+{
+    101: { ...Rahul's object... },
+    102: { ...Priya's object... },
+    103: { ...Amit's object... },
+    ...
+}
+Create
+const employeeMap;
+Rules
+✅ Use reduce()
+✅ Initial value = {}
+*/
+
+    const employeeMap = employees.reduce((obj, employee)=> {
+    obj[employee.id] = employee;
+        return obj;
+    },{})
+
+    console.log(employeeMap);
+
+
+    /*
+🚀 Next Challenge (Interview Level)
+🎫 Jira #513
+Business Requirement
+
+The HR team wants to know the highest-paid employee in each department.
+
+Expected Output
+    */
+
+const highestPaidByDepartment = employees.reduce((obj, employee)=> {
+    obj[employee.id] = employee; 
+    obj[employee.salary] = employee;
+
+    return obj;
+},{});
+
+console.log(highestPaidByDepartment);
