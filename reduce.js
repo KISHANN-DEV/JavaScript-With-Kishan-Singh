@@ -425,3 +425,33 @@ const departmentSalaryExpense = employees.reduce((obj, employee) => {
 }, {});
 
 console.log(departmentSalaryExpense);
+
+/*
+Jira #515 (Senior-Level)
+📢 Business Requirement
+
+The HR dashboard needs a summary for each department containing:
+
+Total Employees
+Total Salary
+Average Salary
+Expected Output
+{
+    Engineering: {
+        totalEmployees: 5,
+        totalSalary: 463000,
+        averageSalary: 92600
+    },
+
+    HR: {
+        totalEmployees: 1,
+        totalSalary: 72000,
+        averageSalary: 72000
+    },
+
+    ...
+}
+Create
+const departmentReport;
+*/
+
