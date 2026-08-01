@@ -455,3 +455,44 @@ Create
 const departmentReport;
 */
 
+const departmentReport = employees.reduce((obj, employee) => {
+  if (!obj[employee.department]) {
+    obj[employee.department] = {
+      totalEmployee: 0,
+      totalSalary: 0,
+      averageSalary: 0
+    };
+  }
+
+  const dept = obj[employee.department];
+  dept.totalEmployee += 1;
+  dept.totalSalary += employee.salary;
+  dept.averageSalary = dept.totalSalary / dept.totalEmployee;
+
+  return obj;
+}, {});
+
+console.log(departmentReport);
+
+/*
+🚀 Jira #516 (🔥 Interview Favorite)
+
+This is one of the most frequently asked reduce() questions.
+
+📢 Business Requirement
+
+Build a skill frequency report.
+
+Expected Output
+*/
+
+
+const skillFrequency = employees.reduce((obj, employee) => {
+  employee.skills.forEach((skill) => {
+    obj[skill] = (obj[skill] || 0) + 1;
+  });
+
+  return obj;
+}, {});
+
+console.log(skillFrequency);
