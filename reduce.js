@@ -490,7 +490,7 @@ Expected Output
 const skillFrequency = employees.reduce((obj, employee) => {
   employee.skills.forEach((skill) => {
     obj[skill] = (obj[skill] || 0) + 1;
-  });
+  })
 
   return obj;
 }, {});
