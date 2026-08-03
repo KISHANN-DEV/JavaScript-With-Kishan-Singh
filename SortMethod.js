@@ -187,3 +187,142 @@ Rules
 ❌ Do not subtract strings (a.name - b.name won't work)
 
 */
+
+const employeesByName = [...employees].sort((a, b) => {
+    return a.name.localeCompare(b.name);
+});
+console.log("==================")
+console.log(employeesByName);
+
+/*
+🎫 Jira #604
+📢 Business Requirement
+
+The HR dashboard wants to display employees based on experience (highest to lowest).
+
+Create
+const experiencedEmployees;
+Rules
+✅ Use sort()
+✅ Keep the original array unchanged
+✅ Sort by experience (Descending)
+❌ No loops
+
+*/
+
+const experiencedEmployees = [...employees].sort((a,b)=> {
+    return b.experience - a.experience;
+})
+
+console.log("EMPLOYEE BASED ON EXPERIENCE");
+console.log(experiencedEmployees);
+
+/*
+🎫 Jira #605
+📢 Business Requirement
+
+The company wants to see youngest employees first (least experience first).
+
+Create
+const juniorEmployees;
+Rules
+✅ Use sort()
+✅ Keep the original array unchanged
+✅ Sort by experience (Ascending)
+*/
+
+const juniorEmployees = [...employees].sort((a,b)=> {
+    return b.experience - a.experience;
+})
+console.log("============Junior================")
+console.log(juniorEmployees);
+
+
+/*
+🎫 Jira #606
+📢 Business Requirement
+
+The HR team wants employees sorted by rating from highest to lowest.
+
+Create
+const topRatedEmployees;
+Rules
+✅ Use sort()
+✅ Keep the original array unchanged
+✅ Highest rating first
+*/
+
+const topRatedEmployees = [...employees].sort((a,b) => {
+    return b.rating - a.rating;
+})
+console.log(topRatedEmployees);
+
+/*
+🎫 Jira #607 (🔥 Interview Level)
+📢 Business Requirement
+
+Sort employees by salary (Highest → Lowest).
+
+If two employees have the same salary, then sort those employees by name (A → Z).
+
+Create
+const salaryThenName;
+Rules
+✅ Use one sort()
+✅ Keep the original array unchanged
+✅ No loops
+
+💡 Think about it:
+
+Compare salaries first.
+If salaries are equal, compare names.
+
+This is one of the most common interview questions because it teaches multi-level sorting.
+*/
+
+const salaryThenName = [...employees].sort((a,b)=> {
+     if(a.salary === b.salary) {
+        return a.name.localeCompare(b.name);
+     }
+     return a.salary - b.salary;
+})
+
+console.log(salaryThenName);
+
+
+/*
+
+🚀 Final sort() Challenge (Interview Level)
+🎫 Jira #608
+📢 Business Requirement
+
+The HR team wants employees sorted using these rules:
+
+Active employees first
+If both employees are active (or both inactive), sort by salary (Highest → Lowest)
+If salaries are equal, sort by name (A → Z)
+Create
+const companyPriorityList;
+Rules
+✅ Use one sort()
+✅ Keep the original array unchanged
+❌ No loops
+
+This is a real interview-style question because it combines boolean sorting, numeric sorting, and string sorting in a single comparator.
+ If you solve this one, you'll have covered the core sort() patterns used in frontend interviews.
+*/
+
+const companyPriorityList = [...employees].sort((a, b) => {
+  if (a.isActive !== b.isActive) {
+    return b.isActive - a.isActive; // active (true=1) comes before inactive (false=0)
+  }
+
+  if (a.salary !== b.salary) {
+    return b.salary - a.salary; // highest salary first
+  }
+
+  return a.name.localeCompare(b.name); // tie-breaker: alphabetical
+});
+
+console.log(companyPriorityList);
+
