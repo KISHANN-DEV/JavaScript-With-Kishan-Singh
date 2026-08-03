@@ -130,5 +130,60 @@ const employees = [
     }
 ];
 
-const bySalaryDesc = [...employees].sort((a, b) => b.salary - a.salary);
-console.log(bySalaryDesc);
+/*
+🎫 Jira #601
+📢 Business Requirement
+
+Sort all employees by salary in ascending order.
+
+Create
+const sortedEmployees;
+Rules
+✅ Use sort()
+✅ Keep the original employees array unchanged
+✅ Print the sorted array
+❌ No loops
+*/
+
+const sortedEmployees = [...employees].sort((a,b)=> {
+    return a.salary - b.salary
+})
+
+console.log(sortedEmployees);
+
+/*
+Jira #602
+📢 Business Requirement
+
+The HR dashboard wants to display the highest-paid employees first.
+
+Create
+const highestPaidEmployees;
+Rules
+✅ Use sort()
+✅ Keep the original array unchanged
+✅ Sort by salary in descending order
+❌ No loops
+*/
+
+const highestPaidEmployees = [...employees].sort((a, b) => {
+    return b.salary - a.salary;
+});
+
+console.log(highestPaidEmployees);
+
+/*
+🚀 Jira #603
+📢 Business Requirement
+
+The HR portal should display employees in alphabetical order by name (A → Z).
+
+Create
+const employeesByName;
+Rules
+✅ Use sort()
+✅ Keep the original array unchanged
+❌ No loops
+❌ Do not subtract strings (a.name - b.name won't work)
+
+*/
