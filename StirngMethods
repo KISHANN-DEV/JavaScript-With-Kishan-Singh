@@ -243,3 +243,58 @@ Rules
 ✅ Use map()
 ✅ Use toLowerCase()
 */
+
+const lowerCaseBrands = products.map((item)=> {
+    return{
+        ...item, 
+        brand: item.brand.toLocaleLowerCase()
+    }
+});
+
+console.log("========LowerCase==========");
+console.log(lowerCaseBrands);
+
+
+/*
+🎫 Jira #808
+📢 Business Requirement
+
+The marketing team wants to update all product names.
+
+Replace every occurrence of:
+
+Apple
+
+with
+
+APPLE INC.
+Create
+const updatedProductNames;
+Rules
+✅ Use map()
+✅ Use replace()
+*/
+
+const updatedProductNames = products.map((item)=> {
+    return{ 
+        ...item,
+        name : "Apple iPhone".replace("Apple", "APPLE INC.")
+    }
+}, []);
+
+console.log("=================updatedProductNames===========");
+console.log(updatedProductNames);
+
+/*
+com
+🚀 Now solve Jira #809
+Business Requirement
+
+Display only the first 15 characters of every product description.
+
+Create
+const shortDescriptions;
+Rules
+✅ Use map()
+✅ Use slice(0, 15)
+*/
