@@ -1,0 +1,245 @@
+const products = [
+  {
+    id: 101,
+    name: "Apple iPhone 16 Pro Max",
+    brand: "Apple",
+    category: "Smartphone",
+    color: "Natural Titanium",
+    description: "Premium flagship smartphone with A18 Pro chip",
+    sku: "APL-IP16PM-001",
+    sellerEmail: "apple@store.com"
+  },
+  {
+    id: 102,
+    name: "Samsung Galaxy S26 Ultra",
+    brand: "Samsung",
+    category: "Smartphone",
+    color: "Phantom Black",
+    description: "High-end Android flagship with AI features",
+    sku: "SAM-S26U-002",
+    sellerEmail: "samsung@store.com"
+  },
+  {
+    id: 103,
+    name: "Sony WH-1000XM6 Headphones",
+    brand: "Sony",
+    category: "Audio",
+    color: "Black",
+    description: "Wireless noise cancelling headphones",
+    sku: "SON-WH1000XM6-003",
+    sellerEmail: "sony@store.com"
+  },
+  {
+    id: 104,
+    name: "Dell XPS 15 Laptop",
+    brand: "Dell",
+    category: "Laptop",
+    color: "Silver",
+    description: "Premium Windows laptop for developers",
+    sku: "DEL-XPS15-004",
+    sellerEmail: "dell@store.com"
+  },
+  {
+    id: 105,
+    name: "MacBook Pro M5",
+    brand: "Apple",
+    category: "Laptop",
+    color: "Space Black",
+    description: "Powerful laptop for professionals",
+    sku: "APL-MBP-M5-005",
+    sellerEmail: "apple@store.com"
+  },
+  {
+    id: 106,
+    name: "Nike Air Zoom Pegasus",
+    brand: "Nike",
+    category: "Shoes",
+    color: "White",
+    description: "Comfortable running shoes",
+    sku: "NIK-PEG-006",
+    sellerEmail: "nike@store.com"
+  },
+  {
+    id: 107,
+    name: "Adidas Ultraboost 6",
+    brand: "Adidas",
+    category: "Shoes",
+    color: "Blue",
+    description: "High-performance running shoes",
+    sku: "ADI-ULT6-007",
+    sellerEmail: "adidas@store.com"
+  },
+  {
+    id: 108,
+    name: "Canon EOS R8 Camera",
+    brand: "Canon",
+    category: "Camera",
+    color: "Black",
+    description: "Mirrorless camera for creators",
+    sku: "CAN-R8-008",
+    sellerEmail: "canon@store.com"
+  },
+  {
+    id: 109,
+    name: "Apple Watch Ultra 3",
+    brand: "Apple",
+    category: "Wearable",
+    color: "Titanium",
+    description: "Advanced smartwatch with GPS",
+    sku: "APL-WU3-009",
+    sellerEmail: "apple@store.com"
+  },
+  {
+    id: 110,
+    name: "Logitech MX Master 4",
+    brand: "Logitech",
+    category: "Accessories",
+    color: "Graphite",
+    description: "Wireless productivity mouse",
+    sku: "LOG-MX4-010",
+    sellerEmail: "logitech@store.com"
+  }
+];
+
+
+/*
+🟢 Level 1 – Search
+🎫 Jira #801
+
+Business Requirement:
+
+Find all products whose name contains "Pro".
+
+Create
+const proProducts;
+Rules
+✅ Use filter()
+✅ Use includes()
+*/
+
+const proProduct = products.filter((item)=> {
+    return item.name.includes("Pro");
+});
+console.log(proProduct);
+
+/*
+🎫 Jira #802
+
+Business Requirement:
+
+Find all products whose brand contains "Apple".
+
+Create
+const appleProducts;
+Rules
+✅ Use filter()
+✅ Use includes()
+*/
+
+const appleProducts = products.filter((item)=>{
+    return item.brand.includes("Apple");
+});
+console.log("==================")
+console.log(appleProducts);
+
+/*
+🎫 Jira #803
+
+Business Requirement:
+
+Search products whose description contains "Wireless".
+
+Create
+const wirelessProducts;
+Rules
+✅ Use filter()
+✅ Use includes()
+*/
+
+const wirelessProducts = products.filter((item)=> {
+    return item.description.includes("Wireless");
+});
+console.log("====================")
+console.log(wirelessProducts);
+
+
+/*
+🟡 Level 2 – Validation
+🎫 Jira #804
+
+Business Requirement:
+
+Find all products whose SKU starts with "APL".
+
+Create
+const appleSKUProducts;
+Rules
+✅ Use filter()
+✅ Use startsWith()
+*/
+
+const appleSKUProducts = products.filter((item)=> {
+    return item.sku.startsWith("APL");
+});
+
+console.log(appleSKUProducts);
+
+
+/*
+🎫 Jira #805
+
+Business Requirement:
+
+Find all sellers whose email ends with ".com".
+
+Create
+const validSellerEmails;
+Rules
+✅ Use filter()
+✅ Use endsWith()
+*/
+
+const validSellerEmails = products.filter((item) => {
+    return item.sellerEmail.endsWith(".com");
+});
+console.log("============Seller============")
+console.log(validSellerEmails);
+
+/*
+🟠 Level 3 – String Modification
+🎫 Jira #806
+
+Business Requirement:
+
+Convert every product name to UPPERCASE.
+
+Create
+const upperCaseProducts;
+Rules
+✅ Use map()
+✅ Use toUpperCase()
+*/
+
+const upperCaseProducts = products.map((item)=> {
+    return{
+        ...item,
+       name : item.name.toUpperCase() 
+    } 
+});
+
+console.log("=======upperCaseProduct========");
+console.log(upperCaseProducts);
+
+/*
+🎫 Jira #807
+
+Business Requirement:
+
+Convert every brand name to lowercase.
+
+Create
+const lowerCaseBrands;
+Rules
+✅ Use map()
+✅ Use toLowerCase()
+*/
