@@ -298,3 +298,77 @@ Rules
 ✅ Use map()
 ✅ Use slice(0, 15)
 */
+
+const shortDescriptions = products.map((item)=> {
+    return{
+        ...item, 
+        description : item.description.slice(0, 15)
+    };
+});
+
+console.log("=========Short Discription =========");
+console.log(shortDescriptions);
+
+
+/*
+🚀 Next Jira (#810)
+📢 Business Requirement
+
+The product team wants to display only the product code from every SKU.
+Example:
+
+APL-IP16PM-001
+↓
+APL
+Create
+const productCodes;
+Rules
+✅ Use map()
+✅ Use slice()
+❌ No loops
+
+💡 Hint: The first three characters of every SKU represent the product code.
+*/
+
+const productCodes = products.map((item)=> {
+    return{
+        ...item,
+        sku : item.sku  .slice(0,3)
+    };
+});
+
+console.log("========Product Code========");
+console.log(productCodes);
+
+/*
+🚀 Next Jira (#811)
+📢 Business Requirement
+
+The UI wants to display only the last 3 digits of every SKU.
+
+Example:
+
+APL-IP16PM-001
+
+↓
+
+001
+Create
+const serialNumbers;
+Rules
+✅ Use map()
+✅ Use slice()
+💡 Use a negative index
+*/
+
+const serialNumber = products.map((item)=> {
+    return{
+        ...item,
+        sku : item.sku.slice(-3)
+    };
+});
+
+console.log(serialNumber);
+
+
+
