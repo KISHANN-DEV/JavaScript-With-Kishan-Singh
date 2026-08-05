@@ -394,5 +394,5 @@ const result4 = filterProducts(products, { brand: "Apple", category: "Laptop", c
 
 console.log(result1);
 console.log(result2);
-console.log(result3);
+
 
