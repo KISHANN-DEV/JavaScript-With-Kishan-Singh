@@ -396,3 +396,276 @@ console.log(result1);
 console.log(result2);
 
 
+/*
+/*
+===============================================================================
+🏢 Sprint 2 - Dynamic Product Filter Engine
+Sprint Goal:
+Build a reusable Product Filter Engine used in an E-Commerce application.
+
+We'll complete this sprint through Jira tickets.
+
+Difficulty : ⭐⭐⭐⭐☆
+===============================================================================
+*/
+
+/*
+
+===============================================================================
+🎫 Jira #901 - Filter Products by Brand
+===============================================================================
+
+📢 Business Requirement
+
+Users should be able to filter products by brand.
+
+Example:
+
+filterProductsByBrand(products, "Apple")
+
+Expected Output
+
+✔ Apple iPhone 16 Pro Max
+✔ MacBook Pro M5
+✔ Apple Watch Ultra 3
+
+-------------------------------------------------------------------------------
+
+Create
+
+function filterProductsByBrand(products, brand) {
+
+}
+
+-------------------------------------------------------------------------------
+
+Rules
+
+✅ Use filter()
+✅ Ignore uppercase/lowercase
+✅ Return a new array
+❌ No loops
+
+===============================================================================
+*/
+
+
+function filterProductsByBrand(products, brand) {
+  return products.filter((product)=> {
+    return product.brand.toLowerCase() === brand.toLowerCase();
+  });
+}
+
+const resultt  = filterProductsByBrand(products, "Apple");
+console.log("==================")
+console.log(resultt);
+
+
+/*
+
+===============================================================================
+🎫 Jira #902 - Filter Products by Category
+===============================================================================
+
+📢 Business Requirement
+
+Users should be able to filter products by category.
+
+Example
+
+filterProductsByCategory(products, "Laptop")
+
+Expected Output
+
+✔ Dell XPS 15 Laptop
+✔ MacBook Pro M5
+
+-------------------------------------------------------------------------------
+
+Create
+
+function filterProductsByCategory(products, category) {
+
+}
+
+-------------------------------------------------------------------------------
+
+Rules
+
+✅ Use filter()
+✅ Ignore uppercase/lowercase
+✅ Ignore extra spaces
+✅ Return a new array
+❌ No loops
+
+===============================================================================
+*/
+
+
+// function filterProductsByCategory(products, category) {
+//   return products.filter((product)=> {
+//     return product.category.trim().toLowerCase() === category.trim().toLowerCase();
+//   });
+// }
+
+
+// const result5 = filterProductsByCategory(products, "Laptop");
+// console.log(result5);
+// console.log("======Result Filter products==========")
+
+
+function filterProductsByCategory(products, category) {
+  return products.filter((product) => {
+    return product.category.trim().toLowerCase() === category.trim().toLowerCase();
+  });
+}
+
+const resultS = filterProductsByCategory(products, "Laptop");
+console.log("======FilterProductsByCategory =========");
+console.log(resultS);
+
+function filterProductsByCategorry(products, category) { 
+    return products.filter((product)=> {
+        return product.category.trim().toLowerCase() === category.trim().toLowerCase();
+    });
+}
+
+const checkAns = filterProductsByCategorry(products,"seller");
+console.log(checkAns);
+
+
+/*
+/*
+===============================================================================
+🎫 Jira #903 - Filter Products by Color
+===============================================================================
+
+📢 Business Requirement
+
+Customers can filter products by color.
+
+-------------------------------------------------------------------------------
+
+Create
+
+function filterProductsByColor(products, color) {
+
+}
+
+-------------------------------------------------------------------------------
+
+Requirements
+
+1. Ignore uppercase/lowercase.
+
+2. Ignore extra spaces.
+
+3. Return matching products.
+
+4. Return a new array.
+
+5. Do not modify the original array.
+
+-------------------------------------------------------------------------------
+
+Example
+
+filterProductsByColor(products, "Black")
+
+Expected Output
+
+✔ Sony WH-1000XM6 Headphones
+
+✔ Canon EOS R8 Camera
+
+-------------------------------------------------------------------------------
+
+Rules
+
+✅ Use filter()
+
+❌ No loops
+
+===============================================================================
+*/
+
+function filterProductsByColor(products, color) {
+  return products.filter((product) => {
+    return product.color.trim().toLowerCase() === color.trim().toLowerCase();
+  });
+}
+
+const filterOut = filterProductsByColor(products, "Black");
+console.log("====Filtering by Color======");
+console.log(filterOut);
+
+/*
+===============================================================================
+🎫 Jira #904 - Filter Apple Laptops
+===============================================================================
+
+📢 Business Requirement
+
+The company wants a shortcut function that returns
+only Apple laptops.
+
+-------------------------------------------------------------------------------
+
+Create
+
+function filterAppleLaptops(products) {
+
+}
+
+-------------------------------------------------------------------------------
+
+Requirements
+
+1. Product brand must be "Apple".
+
+2. Product category must be "Laptop".
+
+3. Return matching products.
+
+4. Return a new array.
+
+5. Do not modify the original array.
+
+-------------------------------------------------------------------------------
+
+Expected Output
+
+[
+  {
+    id: 105,
+    name: "MacBook Pro M5",
+    brand: "Apple",
+    category: "Laptop",
+    ...
+  }
+]
+
+-------------------------------------------------------------------------------
+
+Rules
+
+✅ Use filter()
+
+✅ Use &&
+
+❌ No loops
+
+===============================================================================
+*/
+function AppleLaptops(products){
+    return products.filter((product)=> {
+        return(
+            product.brand.trim().toLowerCase() === "apple" &&
+            product.category.trim().toLowerCase() === "Laptop"
+        );
+    })
+}
+
+const allChecksPass = AppleLaptops(products);
+console.log("======Multipal Checks Pass========");
+console.log(allChecksPass)
