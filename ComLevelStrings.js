@@ -657,15 +657,14 @@ Rules
 
 ===============================================================================
 */
-
 function AppleLaptops(products){
     return products.filter((product)=> {
         return(
-            product.brand.trim().toLowerCase() === "apple" &&
-            product.category.trim().toLowerCase() === "Laptop"
+            product.brand.tirm().toLowerCase() === "apple" &&
+            product.category.tirm().toLowerCase() === "Laptop"
         );
     })
 }
 
-const allChecksPass = AppleLaptops(products);
-console.log(allChecksPass);
+const allChecksPass = filterAppleLaptops(products);
+console.log("======Multipal Checks Pass========");
