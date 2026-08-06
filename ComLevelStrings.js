@@ -657,6 +657,7 @@ Rules
 
 ===============================================================================
 */
+
 function AppleLaptops(products){
     return products.filter((product)=> {
         return(
@@ -667,4 +668,4 @@ function AppleLaptops(products){
 }
 
 const allChecksPass = AppleLaptops(products);
-console.log(allChecksPass)
+console.log(allChecksPass);
