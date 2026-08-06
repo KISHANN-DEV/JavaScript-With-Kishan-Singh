@@ -667,5 +667,4 @@ function AppleLaptops(products){
 }
 
 const allChecksPass = AppleLaptops(products);
-console.log("======Multipal Checks Pass========");
 console.log(allChecksPass)
