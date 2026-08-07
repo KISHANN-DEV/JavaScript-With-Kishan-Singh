@@ -360,16 +360,16 @@ Expected Output:
 
 function searchProducts(products, searchText) {
     const query = searchText.trim().toLowerCase();
-    
+
     return products.filter((item) => {
         return (
-      item.name.toLowerCase().includes(query) ||
-      item.brand.toLowerCase().includes(query) ||
-      item.category.toLowerCase().includes(query) ||
-      item.color.toLowerCase().includes(query) ||
-      item.description.toLowerCase().includes(query)
-    );
-});
+            item.name.toLowerCase().includes(query) ||
+            item.brand.toLowerCase().includes(query) ||
+            item.category.toLowerCase().includes(query) ||
+            item.color.toLowerCase().includes(query) ||
+            item.description.toLowerCase().includes(query)
+        );
+    });
 }
 
 const result = searchProducts(products, "apple");
@@ -378,13 +378,13 @@ console.log(result);
 
 
 function filterProducts(products, filters) {
-  const filterKeys = Object.keys(filters);
+    const filterKeys = Object.keys(filters);
 
-  return products.filter((product) => {
-    return filterKeys.every((key) => {
-      return product[key].toLowerCase() === filters[key].toLowerCase();
+    return products.filter((product) => {
+        return filterKeys.every((key) => {
+            return product[key].toLowerCase() === filters[key].toLowerCase();
+        });
     });
-  });
 }
 
 const result1 = filterProducts(products, { brand: "Apple" });
@@ -451,12 +451,12 @@ Rules
 
 
 function filterProductsByBrand(products, brand) {
-  return products.filter((product)=> {
-    return product.brand.toLowerCase() === brand.toLowerCase();
-  });
+    return products.filter((product) => {
+        return product.brand.toLowerCase() === brand.toLowerCase();
+    });
 }
 
-const resultt  = filterProductsByBrand(products, "Apple");
+const resultt = filterProductsByBrand(products, "Apple");
 console.log("==================")
 console.log(resultt);
 
@@ -515,22 +515,22 @@ Rules
 
 
 function filterProductsByCategory(products, category) {
-  return products.filter((product) => {
-    return product.category.trim().toLowerCase() === category.trim().toLowerCase();
-  });
+    return products.filter((product) => {
+        return product.category.trim().toLowerCase() === category.trim().toLowerCase();
+    });
 }
 
 const resultS = filterProductsByCategory(products, "Laptop");
 console.log("======FilterProductsByCategory =========");
 console.log(resultS);
 
-function filterProductsByCategorry(products, category) { 
-    return products.filter((product)=> {
+function filterProductsByCategorry(products, category) {
+    return products.filter((product) => {
         return product.category.trim().toLowerCase() === category.trim().toLowerCase();
     });
 }
 
-const checkAns = filterProductsByCategorry(products,"seller");
+const checkAns = filterProductsByCategorry(products, "seller");
 console.log(checkAns);
 
 
@@ -590,9 +590,9 @@ Rules
 */
 
 function filterProductsByColor(products, color) {
-  return products.filter((product) => {
-    return product.color.trim().toLowerCase() === color.trim().toLowerCase();
-  });
+    return products.filter((product) => {
+        return product.color.trim().toLowerCase() === color.trim().toLowerCase();
+    });
 }
 
 const filterOut = filterProductsByColor(products, "Black");
@@ -657,16 +657,16 @@ Rules
 
 ===============================================================================
 */
-function AppleLaptops(products){
-    return products.filter((product)=> {
-        return(
-            product.brand.tirm().toLowerCase() === "apple" &&
-            product.category.tirm().toLowerCase() === "Laptop"
+function AppleLaptops(products) {
+    return products.filter((product) => {
+        return (
+            product.brand.trim().toLowerCase() === "apple" &&
+            product.category.trim().toLowerCase() === "Laptop"
         );
     })
 }
 
-const allChecksPass = filterAppleLaptops(products);
+const allChecksPass = AppleLaptops(products);
 console.log("======Multipal Checks Pass========");
 
 /*
@@ -761,3 +761,149 @@ Think Before Coding
 
 ===============================================================================
 */
+function filterProductsw(products, filters) {
+    return products.filter((product) => {
+        if (product.brand.trim().toLowerCase() === filters.brand.trim().toLowerCase()) {
+            return true;
+        }
+        return false;
+    });
+}
+
+const showResults = filterProductsw(products, { brand: "Apple" });
+console.log("============ Show Results =============")
+console.log(showResults);
+
+
+/*
+===============================================================================
+🎫 Jira #905.2 - Support Category Filter
+===============================================================================
+
+📢 Business Requirement
+
+The Product Filter Engine should now support TWO filters.
+
+✔ brand
+
+✔ category
+
+-------------------------------------------------------------------------------
+
+Example 1
+
+filterProducts(products,{
+    brand:"Apple"
+})
+
+↓
+
+Return Apple Products
+
+------------------------------------------------
+
+Example 2
+
+filterProducts(products,{
+    category:"Laptop"
+})
+
+↓
+
+Return Laptop Products
+
+------------------------------------------------
+
+Example 3
+
+filterProducts(products,{
+    brand:"Apple",
+    category:"Laptop"
+})
+
+↓
+
+Return ONLY
+
+MacBook Pro M5
+
+-------------------------------------------------------------------------------
+
+Requirements
+
+1.
+
+If brand exists
+
+↓
+
+Compare it.
+
+-------------------------------------
+
+2.
+
+If category exists
+
+↓
+
+Compare it.
+
+-------------------------------------
+
+3.
+
+If one filter doesn't exist
+
+↓
+
+Ignore it.
+
+-------------------------------------
+
+4.
+
+If BOTH exist
+
+↓
+
+Both must match.
+
+-------------------------------------------------------------------------------
+
+Rules
+
+✅ Use filter()
+
+✅ Use if
+
+✅ Use &&
+
+❌ No loops
+
+===============================================================================
+*/
+
+
+ function filterTwoThings(products, filters) {
+  return products.filter((product) => {
+    let matches = true;
+
+    if (filters.brand) {
+      if (product.brand.trim().toLowerCase() !== filters.brand.trim().toLowerCase()) {
+        matches = false;
+      }
+    }
+    if (filters.category) {
+      if (product.category.trim().toLowerCase() !== filters.category.trim().toLowerCase()) {
+        matches = false;
+      }
+    }
+
+    return matches;
+  });
+}
+
+const showCase = filterTwoThings(products, { brand: "Apple" });
+console.log("===========ShowCase==========");
+console.log(showCase);
