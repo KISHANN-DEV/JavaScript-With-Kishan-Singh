@@ -75,3 +75,148 @@ const employees = [
     }
   }
 ];
+
+/*
+🚀 What are we learning NOW?
+📚 Topic: ES6 Object Destructuring
+
+This is one of the most used JavaScript features in React.
+
+🤔 What is Object Destructuring?
+
+Suppose you have:
+*/
+
+const employee = {
+    id: 101,
+    name: "Rahul",
+    department: "Engineering",
+    salary: 90000
+};
+
+/*
+Normally, you write:
+
+console.log(employee.name);
+console.log(employee.department);
+console.log(employee.salary);
+*/
+
+
+
+/*
+🏢 Why Companies Use It
+
+Imagine a React component.
+
+Instead of:
+
+function EmployeeCard(props) {
+
+    console.log(props.employee.name);
+    console.log(props.employee.department);
+    console.log(props.employee.salary);
+
+}
+
+Companies write:
+
+function EmployeeCard({ employee }) {
+
+    const { name, department, salary } = employee;
+
+}
+
+Every React codebase looks like this.
+
+📈 Where You'll Use It
+React Components
+API Responses
+Express APIs
+MongoDB Data
+Redux
+Context API
+Dashboard Projects
+*/
+
+/*
+🎫 Jira #1001 — Basic Destructuring
+Business Requirement
+
+Extract:
+
+name
+department
+salary
+
+from the first employee.
+
+Create
+const { ... } = employees[0];
+*/
+
+const {name, department, salary} = employees[0];
+console.log(name);
+console.log(department);
+console.log(salary)
+
+
+
+
+/*
+/*
+===============================================================================
+🎫 Jira #1002 - Rename Variables Using Destructuring
+Difficulty : ⭐⭐☆☆☆
+
+Estimated Time:
+10 Minutes
+===============================================================================
+
+📢 Business Requirement
+
+HR wants more descriptive variable names.
+
+Extract these properties from the first employee:
+
+✔ name
+✔ salary
+✔ department
+
+Rename them while destructuring.
+
+-------------------------------------------------------------------------------
+
+Expected Variable Names
+
+employeeName
+
+employeeSalary
+
+employeeDepartment
+
+-------------------------------------------------------------------------------
+
+Example Output
+
+Rahul Sharma
+
+95000
+
+Engineering
+
+-------------------------------------------------------------------------------
+
+Rules
+
+✅ Use object destructuring
+
+✅ Rename variables while destructuring
+
+❌ Do NOT access properties like employee.name
+
+===============================================================================
+
+*/
+
+const{name, salary, department} = employees;
