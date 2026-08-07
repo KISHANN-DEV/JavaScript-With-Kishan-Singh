@@ -668,3 +668,96 @@ function AppleLaptops(products){
 
 const allChecksPass = filterAppleLaptops(products);
 console.log("======Multipal Checks Pass========");
+
+/*
+/*
+===============================================================================
+🎫 Jira #905.1 - Filter Products by Brand (Dynamic Engine)
+Difficulty : ⭐⭐☆☆☆
+
+Skills Required:
+✔ Functions
+✔ filter()
+✔ if Statement
+✔ Object Access
+
+Estimated Time:
+10-15 Minutes
+===============================================================================
+
+📢 Business Requirement
+
+The company has started building a Dynamic Product Filter Engine.
+
+For the first version, support ONLY the "brand" filter.
+
+-------------------------------------------------------------------------------
+
+Function Signature
+
+function filterProducts(products, filters) {
+
+}
+
+-------------------------------------------------------------------------------
+
+Input
+
+filterProducts(products, {
+    brand: "Apple"
+});
+
+-------------------------------------------------------------------------------
+
+Expected Output
+
+✔ Apple iPhone 16 Pro Max
+
+✔ MacBook Pro M5
+
+✔ Apple Watch Ultra 3
+
+-------------------------------------------------------------------------------
+
+Requirements
+
+1. Check ONLY the "brand" property.
+
+2. Ignore uppercase/lowercase.
+
+3. Ignore extra spaces entered by the user.
+
+4. Return matching products.
+
+5. Return a new array.
+
+6. Never modify the original array.
+
+-------------------------------------------------------------------------------
+
+Rules
+
+✅ Use filter()
+
+✅ Use if statement
+
+✅ Use trim()
+
+✅ Use toLowerCase()
+
+❌ No loops
+
+-------------------------------------------------------------------------------
+
+Think Before Coding
+
+1. What is the input?
+
+2. What is the output?
+
+3. Which array method should I use?
+
+4. What decides whether a product stays?
+
+===============================================================================
+*/
