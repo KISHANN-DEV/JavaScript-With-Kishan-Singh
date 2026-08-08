@@ -247,3 +247,298 @@ Topic
 
 ✅ Nested Destructuring
  */
+
+const {
+  performance : {rating, projects, attendance}
+} = employees[0];
+
+console.log(rating);
+console.log(projects);
+console.log(attendance);
+
+/*
+Destructuring
+
+🎫 Jira #1004 (Medium)
+Business Requirement
+
+Generate Employee Summary.
+
+Extract:
+
+name
+city
+rating
+
+from employee 2.
+
+Expected Output
+{
+  name: "Priya Singh",
+  city: "Bangalore",
+  rating: 4.9
+}
+*/
+
+const {
+  name,
+  city, 
+  performance : {
+    rating
+  }
+} = employees[1];
+
+console.log(name);
+console.log(city);
+console.log(rating)
+
+/*
+🎫 Jira #1005 (Hard)
+Business Requirement
+
+The employee profile card needs:
+
+name
+designation
+salary
+projects
+
+from employee 4.
+
+Expected Output
+{
+  name: "Sneha Patel",
+  designation: "Full Stack Developer",
+  salary: 125000,
+  projects: 20
+}
+*/
+
+const {
+  name, 
+  designation,
+  salary, 
+  performance : {
+    projects
+  }
+} = employees[3];
+
+console.log(name);
+console.log(designation)
+console.log(salary)
+console.log(projects);
+
+
+/*
+🎫 Jira #1006 (Company Level)
+Business Requirement
+
+Create a reusable utility.
+
+function createEmployeeCard(employee) {
+
+}
+Expected Output
+{
+  id: 101,
+  name: "Rahul Sharma",
+  department: "Engineering",
+  city: "Delhi",
+  rating: 4.8
+}
+Rules
+✅ Must use destructuring
+❌ No direct property access inside return
+*/
+function createEmployeeCard(employee) {
+  const {id, name, department, city, performance : {rating}} = employee;
+
+  return{
+    id, 
+    name,
+    department,
+    city, 
+    rating
+  }
+}
+
+const checkEmployeeInfo = createEmployeeCard(employee[0]);
+console.log(checkEmployeeInfo);
+
+
+/*
+ 
+🎫 JIRA-201: Employee Search Engine
+Business Requirement
+
+The company dashboard has a search box.
+
+Create a function:
+
+function searchEmployees(employees, searchText) {
+
+}
+
+The search should work on:
+
+name
+department
+designation
+city
+
+The search should be:
+
+Case insensitive
+Partial matching
+Dataset
+
+Use the employees dataset we've been using.
+
+Example
+searchEmployees(employees, "engineer");
+
+Expected:
+
+[
+  Rahul Sharma,
+  Priya Singh,
+  Sneha Patel
+]
+
+because their department contains:
+
+Engineering
+Concepts Tested
+filter()
+includes()
+toLowerCase()
+trim()
+destructuring
+*/
+
+
+function searchEmployees(employees, searchText){
+  const query = searchText.trim().toLowerCase();
+
+  return employees.filter((employee)=> {
+    const{name, department, designation, city} = employee;
+
+    return(
+      name.toLowerCase().includes(query) || 
+      department.toLowerCase().includes(query) || 
+      designation.toLowerCase().includes(query) || 
+      city.toLowerCase().includes(query)
+    );
+  });
+};
+
+const checkResults = searchEmployees(employees, "engineer");
+console.log(checkResults);
+
+/*
+🎫 JIRA-202 (Senior Developer Level)
+
+Now for a tougher ticket.
+
+Business Requirement
+
+Management wants a dashboard analytics API.
+
+Create:
+
+function generateAnalytics(employees) {
+
+}
+Expected Output
+{
+  totalEmployees: 4,
+
+  totalSalaryExpense: 400000,
+
+  highestPaidEmployee: "Sneha Patel",
+
+  averageSalary: 100000,
+
+  topRatedEmployee: "Sneha Patel",
+
+  departments: [
+    "Engineering",
+    "HR"
+  ]
+}
+Rules
+
+Use concepts you've already learned:
+
+✅ reduce()
+✅ map()
+✅ destructuring
+✅ sort()
+✅ Set()
+How I Would Approach It
+
+Break it into variables:
+
+const totalEmployees = ...
+const totalSalaryExpense = ...
+const highestPaidEmployee = ...
+const averageSalary = ...
+const topRatedEmployee = ...
+const departments = ...
+
+Then return:
+
+return {
+  totalEmployees,
+  totalSalaryExpense,
+  highestPaidEmployee,
+  averageSalary,
+  topRatedEmployee,
+  departments
+};
+Interview Hint
+
+Don't try to write the whole function at once.
+
+First write:
+
+function generateAnalytics(employees) {
+
+}
+
+Then calculate only:
+
+totalEmployees
+
+Then:
+
+totalSalaryExpense
+
+Then continue one metric at a time.
+*/
+
+function generateAnalytics(employees) {
+  const totalEmployee = employees.length;
+
+  const totalSalaryExpense = employees.reduce((sum, emp) => sum + emp.salary, 0);
+
+  const averageSalary = totalSalaryExpense / totalEmployee;
+
+  const highestPaidEmployee = [...employees].sort((a, b) => b.salary - a.salary)[0].name;
+
+  const mostExperiencedEmployee = [...employees].sort((a, b) => b.experience - a.experience)[0].name;
+
+  return {
+    totalEmployee,
+    totalSalaryExpense,
+    highestPaidEmployee,
+    mostExperiencedEmployee,
+    averageSalary
+  };
+}
+
+const result = generateAnalytics(employees);
+console.log(result);
+
+
+
