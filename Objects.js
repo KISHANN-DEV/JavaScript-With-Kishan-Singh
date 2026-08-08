@@ -218,5 +218,32 @@ Rules
 ===============================================================================
 
 */
+ const {name : employeeName, salary : employeeSalary, department : employeeDepartment} = employees[0];
+ console.log(employeeName);
+ console.log(employeeSalary);
+ console.log(employeeDepartment);
 
-const{name, salary, department} = employees;
+
+ /*
+🎫 Jira #1003 (Medium)
+Business Requirement
+
+Management wants performance metrics.
+
+Extract:
+
+rating
+projects
+attendance
+
+from:
+
+employees[0].performance
+Expected Output
+4.8
+12
+98
+Topic
+
+✅ Nested Destructuring
+ */
