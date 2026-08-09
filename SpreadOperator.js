@@ -324,7 +324,7 @@ function createTeam(teamName, ...employees) {
 const checkTeam = createTeam("Frontend Team", "Rahul", "Priya", "Sneha");
 console.log(checkTeam);
 
-const employees = [
+const workers = [
   {
     id: 101,
     name: "Rahul Sharma",
@@ -367,5 +367,137 @@ Fetch Rahul Sharma's rating using Optional Chaining.
 
 Expected Output
 4.8
+
 */
+
+
+const checkRahul = workers[0]?.performance?.rating;
+console.log(checkRahul);
+
+
+/*
+🎫 Jira #7002
+Title
+
+Get Employee Rating Safely
+
+Requirement
+
+Fetch Priya Singh's rating using Optional Chaining.
+
+Expected Output
+undefined
+*/
+
+const checkPriya = workers[1]?.performance?.rating;
+console.log(checkPriya);
+
+
+/*
+🎫 Jira #7003
+Title
+
+Get Employee Projects
+
+Requirement
+
+Fetch Amit Kumar's total projects using Optional Chaining.
+
+Expected Output
+8
+*/
+
+const getProjects = workers[2]?.performance?.projects;
+console.log(getProjects);
+
+
+/*
+🎫 Jira #7004
+Title
+
+Get Employee Attendance
+
+Requirement
+
+Fetch Priya Singh's attendance using Optional Chaining.
+
+Expected Output
+undefined
+*/
+
+const priyaAttendance = workers[1]?.performance?.attendance; 
+console.log(priyaAttendance);
+
+/*
+🎫 Jira #7005
+Title
+
+Employee Rating Utility
+
+Requirement
+
+Create a reusable utility function:
+
+function getEmployeeRating(employee) {
+
+}
+Acceptance Criteria
+Use Optional Chaining
+Return rating if available
+Return undefined if rating does not exist
+Test Cases
+getEmployeeRating(employees[0]);
+
+4.8
+*/
+
+function getEmployeeRating(workers) {
+  return workers?.performance?.rating;
+}
+
+console.log(getEmployeeRating(workers[0]));
+
+/*
+🎫 Jira #7006
+Title
+
+Employee Report Generator
+
+Requirement
+
+Create:
+
+function generateEmployeeReport(employee) {
+
+}
+Expected Output (Rahul)
+{
+  name: "Rahul Sharma",
+  rating: 4.8,
+  projects: 12,
+  attendance: 98
+}
+Expected Output (Priya)
+{
+  name: "Priya Singh",
+  rating: undefined,
+  projects: undefined,
+  attendance: undefined
+}
+*/
+
+function generateEmployeeReport(workers) {
+  return {
+    name: workers?.name,
+    rating: workers?.performance?.rating,
+    projects: workers?.performance?.projects,
+    attendance: workers?.performance?.attendance
+  };
+}
+
+const checkReport = generateEmployeeReport(workers[1]);
+console.log(checkReport);
+
+const rahul = generateEmployeeReport(workers[0]);
+console.log(rahul);
 
