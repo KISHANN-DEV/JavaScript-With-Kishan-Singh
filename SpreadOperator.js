@@ -527,3 +527,175 @@ const friends = [
   }
 ];
 
+/*
+🎫 Jira #8001
+Title
+
+Get Employee City
+
+Requirement
+
+Fetch Priya's city.
+
+If city is missing or null, show:
+
+"City Not Available"
+Expected Output
+"City Not Available"
+*/
+
+
+const friendCity = friends[1].city ?? "City Not Available";
+console.log(friendCity);
+
+/*
+🎫 Jira #8002
+Title
+
+Get Employee Bonus
+
+Requirement
+
+Fetch Amit's bonus.
+
+If bonus is missing, return:
+
+0
+Expected Output
+0
+*/
+
+const checkAmit = friends[2].bonus ?? 0;
+console.log(checkAmit);
+
+/*
+🎫 Jira #8003
+Title
+
+Get Employee Department
+
+Requirement
+
+Fetch Rahul's department.
+
+Expected Output
+"Engineering"
+*/
+
+const rahulDeptt = friends[0].department ?? "Engineering";
+console.log(rahulDeptt);
+
+/*
+"
+🎫 Jira #8004
+Title
+
+Employee City Utility
+
+Requirement
+
+Create:
+
+function getEmployeeCity(employee) {
+
+}
+Acceptance Criteria
+Return city if available
+Otherwise return "City Not Available"
+Use ??
+*/
+
+function getEmployeeCity(friends){
+  return friends.city ?? "City Not Available";
+};
+
+const checkCity = getEmployeeCity(friends[0]);
+console.log(checkCity);
+
+/*
+🎫 Jira #8005
+Title
+
+Employee Bonus Utility
+
+Requirement
+
+Create:
+
+function getEmployeeBonus(employee) {
+
+}
+*/
+
+function getEmployeeBonus(friends){
+  return friends.bonus ?? 0;
+}
+
+const checkBonus = getEmployeeBonus(friends[0]);
+console.log(checkBonus);
+
+
+/*
+🎫 Jira #8006 (Company Level)
+Title
+
+Generate Employee Profile
+
+Requirement
+
+Create:
+
+function generateEmployeeProfile(employee) {
+
+}
+Expected Output (Priya)
+{
+  name: "Priya Singh",
+  city: "City Not Available",
+  bonus: 0,
+  department: "HR"
+}
+Expected Output (Amit)
+{
+  name: "Amit Kumar",
+  city: "City Not Available",
+  bonus: 0,
+  department: "Marketing"
+}
+📌 Important Difference
+OR Operator (||)
+const score = 0;
+
+console.log(score || 100);
+
+Output:
+
+100
+
+⚠️ Wrong if 0 is a valid value.
+
+Nullish Coalescing (??)
+const score = 0;
+
+console.log(score ?? 100);
+
+Output:
+
+0
+
+✅ Correct.
+*/
+
+
+function generateEmployeeProfile(friends) {
+  const score = 0;
+  return {
+    name : friends.name ?? "Undefined", 
+    city : friends.city ?? "City Not Available", 
+    bonus : friends.bonus ?? 0, 
+    department : friends.department ?? "Deptt undefined"
+  };
+}
+
+const checkProfiles = generateEmployeeProfile(friends[1]);
+console.log(checkProfiles);
