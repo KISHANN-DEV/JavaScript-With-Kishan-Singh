@@ -501,3 +501,29 @@ console.log(checkReport);
 const rahul = generateEmployeeReport(workers[0]);
 console.log(rahul);
 
+
+
+const friends = [
+  {
+    id: 101,
+    name: "Rahul Sharma",
+    city: "Delhi",
+    department: "Engineering",
+    bonus: 15000
+  },
+
+  {
+    id: 102,
+    name: "Priya Singh",
+    city: null,
+    department: "HR",
+    bonus: null
+  },
+
+  {
+    id: 103,
+    name: "Amit Kumar",
+    department: "Marketing"
+  }
+];
+
