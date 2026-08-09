@@ -324,3 +324,48 @@ function createTeam(teamName, ...employees) {
 const checkTeam = createTeam("Frontend Team", "Rahul", "Priya", "Sneha");
 console.log(checkTeam);
 
+const employees = [
+  {
+    id: 101,
+    name: "Rahul Sharma",
+    department: "Engineering",
+    performance: {
+      rating: 4.8,
+      projects: 12,
+      attendance: 98
+    }
+  },
+
+  {
+    id: 102,
+    name: "Priya Singh",
+    department: "HR"
+  },
+
+  {
+    id: 103,
+    name: "Amit Kumar",
+    department: "Marketing",
+    performance: {
+      rating: 4.5,
+      projects: 8,
+      attendance: 95
+    }
+  }
+];
+
+
+/*
+🎫 Jira #7001
+Title
+
+Get Employee Rating Safely
+
+Requirement
+
+Fetch Rahul Sharma's rating using Optional Chaining.
+
+Expected Output
+4.8
+*/
+
