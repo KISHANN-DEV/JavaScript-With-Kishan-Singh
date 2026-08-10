@@ -697,5 +697,5 @@ function generateEmployeeProfile(friends) {
   };
 }
 
-const checkProfiles = generateEmployeeProfile(friends[1]);
-console.log(checkProfiles);
+const checkProfile = generateEmployeeProfile(friends[1]);
+console.log(checkProfile);
