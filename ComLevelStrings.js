@@ -905,5 +905,4 @@ Rules
 }
 
 const showCase = filterTwoThings(products, { brand: "Apple" });
-console.log("===========ShowCase==========");
 console.log(showCase);
