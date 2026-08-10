@@ -365,4 +365,4 @@ function getEntrySummary(obj){
     }
 }
 
-console.log(getEntrySummary(employeee))
+console.log(getEntrySummary(employeee));
