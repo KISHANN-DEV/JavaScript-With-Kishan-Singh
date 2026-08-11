@@ -301,25 +301,3 @@ laptop.checkStock((qty) => {
 });
 
 laptop.stock();
-
-//Just For testing 
-
-function sendEmail(callback) {
-    setTimeout(() => {
-      console.log(`Send Email`);
-      callback();
-    }, 2000);
-}
-
-function sendNotification(callback) {
-    setTimeout(() => {
-      console.log(`Send Notification`);
-      callback();
-    }, 2000);
-}
-
-function updateOrderHistory(callback) {
-    setTimeout(() => {
-      console.log(`update order History`)
-    }, 1000);
-}
