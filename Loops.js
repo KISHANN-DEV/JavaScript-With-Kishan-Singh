@@ -233,21 +233,21 @@ D1 D2 D3 D4 D5 D6
 
 E1 E2 E3 E4 E5 E6
 
-*/
 
 const rows = ["A", "B", "C", "D", "E"];
 
 for (let i = 0; i < rows.length; i++) {
-
-    let currentRow = rows[i];
-    let output = "";
+    
+let currentRow = rows[i];
+let output = "";
 
     for (let seat = 1; seat <= 6; seat++) {
         output += `${currentRow}${seat} `;
     }
-
+    
     console.log(output);
 }
 
+*/
 
 
