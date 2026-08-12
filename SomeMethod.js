@@ -275,6 +275,8 @@ Rules
 ✅ Active employee
 */
 
+//Last answer
+
 const hasQualifiedFrontendEngineer = employees.some(
     item => item.isActive &&
     item.department === "Engineering" &&
