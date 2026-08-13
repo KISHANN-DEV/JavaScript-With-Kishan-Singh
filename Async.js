@@ -111,3 +111,117 @@ function registerUser(user) {
 registerUser(users[0]); 
 
 //we will do this tommorow 
+
+/*
+🎫 Jira ASYNC-104
+Title
+
+Generate User Report
+
+Requirement
+
+Create:
+
+function generateUserReport(user) {
+
+}
+Acceptance Criteria
+
+Immediately:
+
+Generating report...
+
+After 3 seconds:
+
+Report generated for Rahul
+*/
+
+function generateUserReport(user){
+
+  console.log(`Generating report....`);
+ 
+  setTimeout(() => {
+    console.log(`Report generated for ${user.name}...`)
+  }, 3000);
+};
+
+const reportCheck = generateUserReport(users[1]);
+
+console.log(reportCheck);
+
+
+/*
+🎫 Jira ASYNC-105
+Title
+
+Password Reset System
+
+Requirement
+
+Create:
+
+function resetPassword(email) {
+
+}
+Acceptance Criteria
+
+Immediately:
+
+Password reset requested
+
+After 2 seconds:
+
+Reset link sent to rahul@gmail.com
+*/
+
+
+function resetPassword(email) {
+  console.log(`Password reset request send to ${email}....`);
+
+  setTimeout(() => {
+    console.log(`Reset link sent to ${email}...`)
+  }, 2000);
+}
+
+resetPassword(users[0].email);
+
+/*
+🎫 Jira ASYNC-106 (Interview Level)
+Title
+
+Notification Queue
+
+Requirement
+
+Create:
+
+function sendNotifications(users) {
+
+}
+Acceptance Criteria
+
+For every user:
+
+Sending notification...
+Notification sent to Rahul
+
+Sending notification...
+Notification sent to Priya
+
+Sending notification...
+Notification sent to Amit
+
+Use setTimeout() and loop logic.
+*/
+
+function sendNotifications(users){
+  setTimeout(() => {
+    for(let i = 0; i < users.length; i++){
+      console.log(`Sending Notification...`);
+      console.log(`Notification Send to ${users[i].name}`);
+      console.log(" ");
+    }
+  }, 2000);
+}
+
+sendNotifications(users);
