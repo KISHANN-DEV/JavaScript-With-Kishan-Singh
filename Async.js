@@ -111,3 +111,27 @@ function registerUser(user) {
 registerUser(users[0]); 
 
 //we will do this tommorow 
+
+/*
+🎫 Jira ASYNC-104
+Title
+
+Generate User Report
+
+Requirement
+
+Create:
+
+function generateUserReport(user) {
+
+}
+Acceptance Criteria
+
+Immediately:
+
+Generating report...
+
+After 3 seconds:
+
+Report generated for Rahul
+*/
