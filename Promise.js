@@ -22,6 +22,39 @@ task1()
   .then(() => task4());
 */
 
+const companyData = {
+  products: [
+    {
+      id: 1,
+      name: "Laptop",
+      stock: 50
+    },
+    {
+      id: 2,
+      name: "Mouse",
+      stock: 120
+    }
+  ],
+
+  orders: [
+    {
+      orderId: 101,
+      customer: "Rahul Sharma",
+      amount: 2500
+    },
+    {
+      orderId: 102,
+      customer: "Priya Singh",
+      amount: 4500
+    }
+  ],
+
+  revenue: {
+    today: 25000,
+    monthly: 450000
+  }
+};
+
 const orders = [
     {
         id: 101,
@@ -356,3 +389,169 @@ Products┘
 
 This makes applications faster.
 */
+
+
+const employees = [
+  {
+    id: 1,
+    name: "Rahul",
+    department: "Engineering"
+  },
+  {
+    id: 2,
+    name: "Priya",
+    department: "HR"
+  },
+  {
+    id: 3,
+    name: "Amit",
+    department: "Marketing"
+  }
+];
+
+/*
+🎫 PROMISEALL-201
+Title
+
+Employee Dashboard Loader
+
+Create Functions
+getProfile(employee)
+getAttendance(employee)
+getSalary(employee)
+Expected Output
+Profile Loaded
+Attendance Loaded
+Salary Loaded
+
+
+Dashboard Ready
+Requirement
+
+Use:
+
+Promise.all([...])
+*/
+
+function getProfile(employees){
+   return new Promise((resolve, reject) => {
+        setTimeout(()=> {
+            if(employees){
+                resolve(`Profile Loaded: ${employees.name}`)
+            } else{
+                reject(`${employees.name} doesn't Exist`);
+            };
+        },2000);
+    });
+}
+
+function getAttendance(employees){
+    return new Promise((resolve, reject)=> {
+        setTimeout(() => {
+            if(employees){
+                resolve(`Attendence Loaded : 40`)
+            } else{
+                reject(`Attendence Not Loaded...`);
+            }
+        }, 1000);
+    });
+}
+
+function getSalary(employees){
+    return new Promise((resolve, reject) => {
+       setTimeout(() => {
+        if(employees){
+            resolve(`Salary Loaded : 35000`)
+        } else {
+            reject(`Salaray Not found...`)
+        }
+       }, 3000);   
+    });
+}
+
+Promise.all([
+    getProfile(employees),
+    getAttendance(employees),
+    getSalary(employees)
+])
+
+.then((results)=> {
+    console.log(results)
+
+    console.log(`Dashboard Ready `)
+})
+
+.catch((error)=> {
+    console.log(error)
+})
+
+/*
+One More Question Left
+
+Complete PROMISEALL-202:
+
+getProducts()
+getOrders()
+getRevenue()
+
+using:
+
+Promise.all([
+   getProducts(),
+   getOrders(),
+   getRevenue()
+])
+
+After that, we'll move to:
+*/
+
+
+function getProducts(companyData){
+    return new Promise((resolve, reject) => {
+        setTimeout(() => {
+            if(companyData.products.length > 0){
+                resolve("Products Loaded");
+            } else {
+                reject("No Products Found");
+            }
+        }, 2000);
+    });
+}
+
+function getOrders(companyData){
+    return new Promise((resolve, reject) => {
+        setTimeout(() => {
+            if(companyData.orders.length > 0){
+                resolve("Orders Loaded");
+            } else {
+                reject("No Orders Found");
+            }
+        }, 3000);
+    });
+}
+
+function getRevenue(companyData){
+    return new Promise((resolve, reject) => {
+        setTimeout(() => {
+            if(companyData.revenue){
+                resolve("Revenue Loaded");
+            } else {
+                reject("Revenue Not Found");
+            }
+        }, 4000);
+    });
+}
+
+Promise.all([
+    getProducts(companyData),
+    getOrders(companyData),
+    getRevenue(companyData)
+])
+.then((data) => {
+    console.log(data);
+    console.log("Admin Dashboard Ready");
+})
+.catch((error) => {
+    console.log(error);
+});
+
