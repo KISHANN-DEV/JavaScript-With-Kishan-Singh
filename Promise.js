@@ -144,3 +144,185 @@ verifyPayment(orders[2])
    .then((data)=> console.log(data))
    .catch((error)=> console.log(error));
 
+/*
+🎫 PROMISE-103
+Title
+
+Generate Invoice
+
+Requirement
+
+Create:
+
+function generateInvoice(order) {
+
+
+}
+Acceptance Criteria
+
+Return Promise.
+
+After 1 second:
+
+Invoice Generated For Rahul Sharma
+*/
+
+function generateInvoice(order){
+    return new Promise((resolve, reject)=> {
+        console.log(`Generating Invoice for Users.....`);
+
+        const invoiceData = order;
+
+        setTimeout(()=>{
+         if(order === order){
+            resolve = [
+              order.customer,
+              order.amount,
+              order.status
+            ]
+         } else{
+            reject(`No Data for generating Invoice for ${order.customer}`);
+         }
+        },1000)
+    })
+}
+
+generateInvoice(orders[0])
+   .then((data)=> console.log(data))
+   .catch((error)=> console.log(error));
+
+   /*
+🎫 Next Jira — PROMISE-104
+
+Create:
+
+function sendEmail(order) {
+
+
+}
+Requirements
+Return a Promise
+Delay 1 second
+Resolve with:
+Email Sent To Rahul Sharma
+
+Test using:
+
+sendEmail(orders[0])
+
+   */
+
+function sendEmail(order) {
+  return new Promise((resolve, reject) => {
+
+    setTimeout(() => {
+
+      if (order.customer) {
+        resolve(`Email Sent To ${order.customer}`);
+      } else {
+        reject("Email Sending Failed");
+      }
+
+    }, 1000);
+
+  });
+}
+
+sendEmail(orders[0])
+  .then((data) => console.log(data))
+  .catch((error) => console.log(error));
+
+
+
+    /*
+🎫 PROMISE-105 (Most Important)
+
+Now we're doing your first Promise Chaining task.
+
+Use these functions:
+
+processOrder(order)
+verifyPayment(order)
+generateInvoice(order)
+sendEmail(order)
+
+Create:
+
+completeOrderWorkflow(order)
+
+Expected flow:
+
+Order Processed
+↓
+Payment Verified
+↓
+Invoice Generated
+↓
+Email Sent
+↓
+Workflow Completed
+
+Use:
+
+processOrder(order)
+  .then(...)
+  .then(...)
+  .then(...)
+  .then(...)
+  .catch(...)
+
+This is the topic that companies actually use every day.
+    */
+
+
+function processOrder(order){
+    return new Promise((resolve, reject) => {
+        setTimeout(() => {
+            console.log(`Order Processed...`)
+            resolve(order);
+        }, 1000);
+    });
+}
+
+function verifyPayment(order){
+    return new Promise((resolve, reject)=> {
+        setTimeout(() => {
+            console.log(`Payment Verified `);
+            resolve(order);
+        }, 1000);
+    });
+}
+
+function generateInvoice(order){
+    return new Promise((resolve, reject) => {
+        setTimeout(() => {
+            console.log(`Invoice Generated..`);
+            resolve(order);
+        }, 1000);
+    });
+}
+
+function sendEmail(order){
+    return new Promise((resolve, reject)=> {
+        setTimeout(()=> {
+            console.log(`Email sent to ${order.customer}`);
+            resolve(order);
+        },1000);
+    });
+}
+
+function completeOrderWorkflow(order){
+    processOrder(order)
+     .then((order)=>verifyPayment(order))
+     .then((order)=> generateInvoice(order))
+     .then((order)=> sendEmail(order))
+     .then(()=> {
+        console.log(`WorkFlow Completed.....`)
+     })
+
+     .catch((error)=> {
+        console.log(`WorkFlow Failed, ${error}`)
+     });
+}
+
+completeOrderWorkflow(orders[0]);
