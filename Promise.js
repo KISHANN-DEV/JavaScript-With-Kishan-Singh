@@ -326,3 +326,33 @@ function completeOrderWorkflow(order){
 }
 
 completeOrderWorkflow(orders[0]);
+
+
+/*
+:
+
+🚀 Promise.all()
+Why Do We Need Promise.all()?
+
+Imagine a dashboard loading:
+
+Users API
+Orders API
+Products API
+
+Instead of waiting:
+
+Users
+↓
+Orders
+↓
+Products
+
+We run all requests together:
+
+Users ─┐
+Orders ├─ Promise.all()
+Products┘
+
+This makes applications faster.
+*/
