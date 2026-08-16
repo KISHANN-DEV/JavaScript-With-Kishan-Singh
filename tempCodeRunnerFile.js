@@ -1,10 +1,23 @@
-function filterProductsByCategory(products, category) {
-//   return products.filter((product)=> {
-//     return product.category.trim().toLowerCase() === category.trim().toLowerCase();
-//   });
+
+// async function getUsers() {
+
+//     try {
+  
+//         console.log("Fetching Users...");
+
+//         const response = await fetch(
+//             "https://jsonplaceholder.typicode.com/users"
+//         );
+
+//         const users = await response.json();
+
+//         console.log(users);
+
+//     } catch (error) {
+
+//         console.log(error);
+
+//     }
 // }
 
-
-// const result5 = filterProductsByCategory(products, "Laptop");
-// console.log(result5);
-// console.log("======Result Filter products==========")
+// getUsers();
