@@ -338,3 +338,225 @@ async function employeeReport(){
 }
 
 employeeReport();
+
+
+/*
+POST
+
+POST means:
+
+Create Data
+Send Data
+Add New Record
+
+Examples:
+
+Register User
+Create Product
+Place Order
+Submit Form
+Add Employee
+Real World Example
+
+Suppose a user fills a registration form:
+
+{
+  name: "Kishan Singh",
+  email: "kishan@gmail.com"
+}
+
+We send this data to the server.
+*/
+
+async function createEmployee() {
+
+    try {
+
+        console.log("Creating Employee...");
+
+        const response = await fetch(
+            "https://jsonplaceholder.typicode.com/users",
+            {
+                method: "POST",
+
+                headers: {
+                    "Content-Type": "application/json"
+                },
+
+                body: JSON.stringify({
+                    name: "Kishan Singh",
+                    department: "Engineering",
+                    salary: 75000
+                })
+            }
+        );
+
+        const data = await response.json();
+
+        console.log(data);
+
+    } catch (error) {
+
+        console.log(error);
+
+    }
+}
+
+createEmployee();
+
+
+/*
+Your Ticket — POST-102
+
+Create a new product.
+
+Send:
+
+{
+  title: "Gaming Laptop",
+  price: 85000,
+  category: "Electronics"
+}
+
+Use:
+
+POST
+
+API:
+
+https://jsonplaceholder.typicode.com/posts
+
+Requirements:
+
+1. async/await
+2. try/catch
+3. POST request
+4. Print server response
+*/
+
+
+async function newProduct() {
+    
+    try{
+        console.log(`Creating new Product...`);
+
+        const response = await fetch(
+            `https://jsonplaceholder.typicode.com/posts` ,{
+              
+                 method : "POST", 
+
+                 headers : {
+                    "Content-Type" : "application/json"
+                 }, 
+
+                 body : JSON.stringify({
+                    title : "Gaming Laptop", 
+                    price : 85000, 
+                    category : "Electonics"
+                 })
+            })
+
+            const getProduct = await response.json()
+            console.log(getProduct);
+    } catch(error){
+        console.log(error);
+    }
+}
+
+newProduct();
+
+
+/*
+.
+
+🎫 PUT-101
+Title
+
+Update Employee Salary
+
+Requirement
+
+Update:
+
+{
+   id: 101,
+   name: "Rahul Sharma",
+   salary: 75000
+}
+*/
+
+
+async function updateSalary() {
+    
+    try{
+        console.log(`Updating Employee Salary....`); 
+
+        const response = await fetch(
+             `https://jsonplaceholder.typicode.com/posts`, {
+                method : "PUT", 
+
+                headers : {
+                    "Content-Type" : "application/json"
+                }, 
+
+                body : JSON.stringify({
+                    id : 101, 
+                    name : "Rahul Sharma", 
+                    salary : "75000"
+                })
+             }
+        ); 
+
+        const data = await response.json();
+        console.log(data); 
+    } catch(error) {
+        console.log(error)
+    }
+}
+
+updateSalary();
+
+/*
+🎫 Your Ticket — DELETE-102
+Title
+
+Delete Product
+
+Delete:
+
+id: 201
+title: "Gaming Laptop"
+
+API:
+
+https://jsonplaceholder.typicode.com/posts/2
+
+Requirements:
+
+1. async/await
+2. try/catch
+3. DELETE request
+4. Print success message
+*/
+
+
+async function deleteProduct() {
+    try{
+        console.log(`Fecting The Info to be Deleted....`);
+
+        const response = await fetch(
+            `https://jsonplaceholder.typicode.com/posts/201/title:"Gaming Laptop"`, 
+             {
+                method : "DELETE"
+             }
+         ); 
+
+         if(response.ok){
+            console.log(`Employee Data has been deleted`)
+         }
+    } catch(error){
+        console.log(error);
+    }
+}
+
+deleteProduct();
